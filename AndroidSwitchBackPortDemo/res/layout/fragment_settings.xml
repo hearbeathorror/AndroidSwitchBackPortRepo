@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mySwitch="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollView"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin"
+    android:background="@android:color/transparent"
+    android:layout_marginBottom="@dimen/tabiconheight">
+
+    <RelativeLayout
+        android:id="@+id/all_layers"
+        android:background="@drawable/black_bg_small"
+        android:layout_width="fill_parent"
+        android:padding="@dimen/margin"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/relLayerOne"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/edit_text" >
+
+            <Button
+                android:id="@+id/btnToggle"
+                style="@style/txtStyleBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:text="@string/toggle"
+                android:layout_centerInParent="true"
+                android:clickable="true"
+                android:textColorLink="@android:color/black" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txtSettingsLbl"
+            style="@style/txtStyleWhite"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relLayerOne"
+            android:layout_marginRight="@dimen/right_margin"
+            android:layout_marginTop="@dimen/margin"
+            android:text="@string/settings" />
+
+        <RelativeLayout
+            android:id="@+id/relLayerTwo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtSettingsLbl"
+            android:layout_marginTop="@dimen/margin"
+            android:background="@drawable/edit_text" >
+
+            <RelativeLayout
+                android:id="@+id/relSyncVid"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical" >
+
+                <TextView
+                    android:id="@+id/txtSyncVideos"
+                    style="@style/txtStyleBlack"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/space"
+                    android:layout_toLeftOf="@+id/lnrSwitchSyncVideos"
+                    android:text="@string/sync_videos" />
+                <!--
+                     <ToggleButton
+                    android:id="@+id/switchSyncVideos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:background="@drawable/toggle_off"
+                    android:layout_alignParentRight="true"/>-->
+
+                <LinearLayout
+                    android:id="@+id/lnrSwitchSyncVideos"
+                    android:layout_width="100dp"
+                    android:layout_height="46dp "
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/margin_top_row"
+                    android:gravity="center_vertical"
+                    android:layout_centerVertical="true"
+                    android:orientation="horizontal"
+                    android:background="@android:color/transparent">
+
+                    <com.packagename.androidswitchbackportdemo.customviews.MySwitch
+                        android:id="@+id/switchSyncVideos"
+                        style="@style/mySwitchStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        mySwitch:backgroundMask="@drawable/smask_background_copy"
+                        mySwitch:leftBackground="@drawable/sleft_background_copy1_blue"
+                        mySwitch:pushStyle="true"
+                        mySwitch:rightBackground="@drawable/sright_background_copy1"
+                        mySwitch:textOn=""
+                    	mySwitch:textOff="" 
+                        mySwitch:textOnThumb="false"
+                        mySwitch:thumb="@drawable/stoggle_copy1"
+                        mySwitch:thumbExtraMovement="@dimen/thumb_movement"
+                        mySwitch:track="@drawable/sgroove_copy"
+                        mySwitch:trackTextPadding="2dp" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/lnrSep_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relSyncVid"
+                android:layout_marginBottom="@dimen/space"
+                android:layout_marginTop="@dimen/space"
+                android:background="@drawable/line"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/relSyncVidOverWifi"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lnrSep_one" >
+
+                <TextView
+                    android:id="@+id/txtSyncVideosOverWifi"
+                    style="@style/txtStyleBlack"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/lnrSwitchSyncVideosOverWifi"
+                    android:text="@string/sync_vids_over_wifi" />
+                <!--
+                     <ToggleButton
+                    android:id="@+id/switchSyncVideos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_name"
+                    android:background="@drawable/toggle_off"
+                    android:layout_alignParentRight="true"/> -->
+
+                <LinearLayout
+                    android:id="@+id/lnrSwitchSyncVideosOverWifi"
+                    android:layout_width="100dp"
+                    android:layout_height="46dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin_top_row"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:background="@android:color/transparent">
+
+                    <com.packagename.androidswitchbackportdemo.customviews.MySwitch
+                        android:id="@+id/switchSyncVidOverWifi"
+                        style="@style/mySwitchStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        mySwitch:backgroundMask="@drawable/smask_background_copy"
+                        mySwitch:leftBackground="@drawable/sleft_background_copy1_pink"
+                        mySwitch:pushStyle="true"
+                        mySwitch:rightBackground="@drawable/sright_background_copy1"
+                        mySwitch:textOn=""
+                    	mySwitch:textOff="" 
+                        mySwitch:textOnThumb="false"
+                        mySwitch:thumb="@drawable/stoggle_copy1"
+                        mySwitch:thumbExtraMovement="@dimen/thumb_movement"
+                        mySwitch:track="@drawable/sgroove_copy"
+                        mySwitch:trackTextPadding="2dp" />
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

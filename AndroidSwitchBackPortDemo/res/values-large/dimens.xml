@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header_height">50dp</dimen>
+    <dimen name="login_button_width">100dp</dimen>
+    <dimen name="login_button_height">50dp</dimen>
+    <dimen name="login_margin_right">15dp</dimen>
+    <dimen name="login_margin_top">15dp</dimen>
+    <dimen name="image_button_width">70dp</dimen>
+    <dimen name="image_button_height">50dp</dimen>
+    <dimen name="margin">10dp</dimen>
+    <dimen name="margin_login">20dp</dimen>
+    <dimen name="right_margin">20dp</dimen>
+    <dimen name="space">10dp</dimen>
+    <dimen name="tabiconheight">95dp</dimen>
+    <dimen name="video_width">130dp</dimen>
+    <dimen name="video_height">100dp</dimen>
+    <dimen name="user_avatar_width">55dp</dimen>
+    <dimen name="user_avatar_height">55dp</dimen>
+    <dimen name="margin_top_row">5dp</dimen>
+    <dimen name="video_height_detail_view">180dp</dimen>
+    <dimen name="width_place_details">240dp</dimen>
+     <dimen name="video_width_detail">110dp</dimen>
+    <dimen name="rating_width">240dp</dimen>
+    <dimen name="video_width_horizontal">100dp</dimen>
+    <dimen name="video_height_horizontal">100dp</dimen>
+    <dimen name="horizontal_list_view_height">100dp</dimen>
+    <dimen name="small_font">14sp</dimen>
+    <dimen name="medium_font">16sp</dimen>
+    <dimen name="map_view_topbar_height">45dp</dimen>
+    <dimen name="play_img_width">55dp</dimen>
+    <dimen name="play_img_height">55dp</dimen>
+    <dimen name="claim_dimen">55dp</dimen>
+    <dimen name="sort_btn_width">56dp</dimen>
+    <dimen name="sort_btn_height">56dp</dimen>
+    <dimen name="thumb_movement">25dp</dimen>
+</resources>

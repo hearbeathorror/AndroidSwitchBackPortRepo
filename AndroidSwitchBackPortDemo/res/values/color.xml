@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="gray_bg">#ebebeb</color>
+    <color name="blue">#469cd9</color>
+    <color name="pink">#c258a3</color>
+    <color name="gray_buttons">#6f6f6f</color>
+    <color name="list_bg">#3a3839</color>
+    <color name="dark_bg">#252324</color>
+    <color name="silver">#c0c0c0</color>
+    <color name="dark_pink">#b80899</color>
+    <color name="dark_blue">#033355</color>
+</resources>

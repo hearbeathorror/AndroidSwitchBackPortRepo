@@ -1,0 +1,236 @@
+public class CommonUtility {
+	private static String TAG = CommonUtility.class.getSimpleName();
+	
+	/**
+	 * Gets the execption message from the exception
+	 * @param e
+	 * @return
+	 */
+	public static String getExceptionMSG(Exception e) {
+		String msgString = "Exception : ";
+		msgString += e.getMessage();
+		msgString += "\nStack : ";
+		StackTraceElement array[] = e.getStackTrace();
+		for(int i = 0; i < array.length; i++) {
+			msgString += array[i].getClassName();
+			msgString +=  " : " + array[i].getMethodName();
+			msgString += " : " + array[i].getFileName();
+			msgString += " : " + array[i].getLineNumber();
+			msgString += "\n";
+		}
+		return msgString;
+	}
+	
+	/**
+	 * When the record button is pressed
+	 * and if the video is not uploaded on the server
+	 * the entry will be made into the xml file 
+	 * @param activityId
+	 * @param videoPath
+	 */
+	public static void writeToXmlFile(String activityId, String videoPath) {
+		try {
+			String xmlFilePath = ExternalStorageManager.InsuranceAppXmlDIR
+					+ "videolist.xml";
+			File dir = new File(xmlFilePath);
+			FileOutputStream fileOutputStream = null;
+			
+			if(!dir.exists()) {
+				fileOutputStream = new FileOutputStream(dir);
+				String data = writeToNewFile(activityId, videoPath);
+				fileOutputStream.write(data.getBytes());
+				fileOutputStream.close();
+			}else {
+				// append data here
+				parseFileAndAppend(xmlFilePath, "2", "vid2");
+			}
+		}catch(FileNotFoundException e) {
+			e.printStackTrace();
+			Logger.e(modules.INSURANCE_APP, TAG, getExceptionMSG(e));
+		}catch(RuntimeException e) {
+			e.printStackTrace();
+			Logger.e(modules.INSURANCE_APP, TAG, getExceptionMSG(e));
+		} catch (IOException e) {
+			e.printStackTrace();
+			Logger.e(modules.INSURANCE_APP, TAG, getExceptionMSG(e));
+		}
+	}
+	
+	/**
+	 * If the xml file does not exist the following code will be added to it
+	 * the xml files format will be :
+	 * 
+	 * <Root>
+	 * 	<VideoDetail>
+	 * 		<ActivityID>1</ActivityID>
+	 * 		<VideoPath>path here</VideoPath>
+	 * 	</VideoDetail>
+	 * 	.. more nodes will be added here
+	 *  and those uploaded will be removed from this file
+	 * </Root>
+	 * 
+	 * @param activityId
+	 * @param videoPath
+	 * @return
+	 */
+	public static String writeToNewFile(String activityId, String videoPath) {
+		 XmlSerializer serializer = Xml.newSerializer();
+		 StringWriter writer = new StringWriter();
+		 try {
+			 serializer.setOutput(writer);
+			 serializer.startDocument("UTF-8", true);
+
+			 // main tag
+			 serializer.startTag("", Global.XML_ROOT_NODE);
+			 serializer.startTag("", Global.VIDEO_DETAIL);
+
+			 serializer.startTag("", Global.ACTIVITY_ID);
+			 serializer.text(activityId);
+			 serializer.endTag("", Global.ACTIVITY_ID);
+			 serializer.startTag("", Global.VIDEO_PATH);
+			 serializer.text(videoPath);
+			 serializer.endTag("", Global.VIDEO_PATH);
+
+			 serializer.endTag("", Global.VIDEO_DETAIL);
+			 serializer.endTag("", Global.XML_ROOT_NODE);
+			 serializer.endDocument();
+			 serializer.flush();
+
+			 String dataWrite= writer.toString();
+			 return dataWrite;
+		 } catch (Exception e) {
+			 throw new RuntimeException(e);
+		 } 
+	}
+	
+	/**
+	 * If the file exists,then the video details 
+	 * will be appended as a new node into the xml
+	 * @param xmlFilePath
+	 * @param activityId
+	 * @param videoPath
+	 */
+	public static void parseFileAndAppend(String xmlFilePath, String activityId, String videoPath) {
+		try {
+			DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+			Document document = documentBuilder.parse(new File(xmlFilePath));
+			
+			Node xmlVideoNodes = document.getElementsByTagName(Global.XML_ROOT_NODE).item(0);
+			
+			Element root = document.createElement(Global.VIDEO_DETAIL);
+			Element item = document.createElement(Global.ACTIVITY_ID);
+	        item.appendChild(document.createTextNode(activityId));
+	        root.appendChild(item);
+	        
+	        item = document.createElement(Global.VIDEO_PATH);
+	        item.appendChild(document.createTextNode(videoPath));
+	        root.appendChild(item);
+			
+	        xmlVideoNodes.appendChild(root);
+			saveXmlFile(document,xmlFilePath);
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+			Logger.e(modules.INSURANCE_APP, TAG, getExceptionMSG(e));
+		} catch (SAXException e) {
+			e.printStackTrace();
+			Logger.e(modules.INSURANCE_APP, TAG, getExceptionMSG(e));
+		} catch(Exception e) {
+			e.printStackTrace();
+			Logger.e(modules.INSURANCE_APP, TAG, getExceptionMSG(e));
+		}
+	}
+	
+	/**
+	 * Any changes made to the xml, either append or 
+	 * deletion of nodes will be written back to the xml
+	 * @param document
+	 * @param xmlFilePath
+	 */
+	private static void saveXmlFile(Document document,String xmlFilePath) {
+		try {
+			Source source = new DOMSource(document);
+			StreamResult result = new StreamResult(new File(xmlFilePath));
+	        //StreamResult result = new StreamResult(new OutputStreamWriter(fileOutputStream, "ISO-8859-1"));
+	        Transformer xformer = TransformerFactory.newInstance().newTransformer();                        
+	        xformer.transform(source, result);
+		}catch (TransformerConfigurationException e) {
+			e.printStackTrace();
+			Logger.e(modules.INSURANCE_APP, TAG, getExceptionMSG(e));
+		} catch (TransformerFactoryConfigurationError e) {
+			e.printStackTrace();
+			Logger.e(modules.INSURANCE_APP, TAG, getExceptionMSG(e.getException()));
+		} catch (TransformerException e) {
+			e.printStackTrace();
+			Logger.e(modules.INSURANCE_APP, TAG, getExceptionMSG(e));
+		}
+	}
+	
+	/**
+	 * When a video is uploaded, 
+	 * the node will be removed from the xml
+	 * @param activityId
+	 */
+	public static void deleteFromXmlFile(String activityId) {
+		try {
+			boolean isToDelete = false;
+			String xmlFilePath = ExternalStorageManager.InsuranceAppXmlDIR
+					+ "videolist.xml";
+			DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();
+			Document document = documentBuilder.parse(new File(xmlFilePath));
+			
+			Node xmlVideoNodes = document.getElementsByTagName(Global.XML_ROOT_NODE).item(0);
+			NodeList nodeList = xmlVideoNodes.getChildNodes();
+			
+			for(int i=0;i<nodeList.getLength();i++) {
+				Node node = nodeList.item(i);
+				NodeList vidDetailNodeList = node.getChildNodes();
+				
+				for(int j=0;j<vidDetailNodeList.getLength();j++) {
+					Node innerNode = vidDetailNodeList.item(j);
+					if (innerNode.getNodeName().equals(Global.ACTIVITY_ID)) {
+						if(innerNode.getTextContent().equals(activityId)) {
+							// delete this node
+							// and save xml doc
+							isToDelete = true;
+							break;
+						}
+					}
+				}
+				if(isToDelete) {
+					xmlVideoNodes.removeChild(node);
+					break;
+				}
+			}
+			
+			// save xml only if changes have been made
+			if(isToDelete) {
+				saveXmlFile(document, xmlFilePath);
+			}
+		} catch (ParserConfigurationException e) {
+			e.printStackTrace();
+		} catch (SAXException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Gets the list of video details that have to be uploaded
+	 * @return
+	 */
+	public static List<VideosToUpload> getVideosToUpload() {
+		List<VideosToUpload> videoList = new ArrayList<VideosToUpload>();
+		
+		String xmlFilePath = ExternalStorageManager.InsuranceAppXmlDIR
+				+ "videolist.xml";
+		
+		VideosToUploadParser videosToUploadParser = 
+				new VideosToUploadParser(xmlFilePath);
+		videoList = videosToUploadParser.parseDocument();
+		
+		return videoList;
+	}
+}

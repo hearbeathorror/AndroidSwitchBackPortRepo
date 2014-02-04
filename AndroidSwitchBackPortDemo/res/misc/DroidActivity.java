@@ -8,7 +8,6 @@ import java.nio.Buffer;
 import java.nio.ShortBuffer;
 import java.text.DecimalFormat;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -83,8 +82,9 @@ public class DroidActivity extends Activity implements OnClickListener {
 	private RelativeLayout mainLayout;
 	
 	private String mActivityId;
-	private SetVideoAsyncTask mSetVideoAsyncTask;
 	private File file;
+	
+	private static boolean serverRecordFailed = false;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -246,6 +246,9 @@ public class DroidActivity extends Activity implements OnClickListener {
 			recorder.start();
 		}catch(FFmpegFrameRecorder.Exception e) {
 			e.printStackTrace();
+			// set flag here
+			// server did not receive packets
+			serverRecordFailed = true;
 		}
 
 		startTime = System.currentTimeMillis();
@@ -361,9 +364,6 @@ public class DroidActivity extends Activity implements OnClickListener {
 						ffmpeg_link1,
 						getFileSize(),
 						meter.getText().toString());
-				
-				// set video
-				setVideo(Global.BACK_PRESSED);
 			}
 		} else {
 			if (!recording) {
@@ -371,15 +371,21 @@ public class DroidActivity extends Activity implements OnClickListener {
 				Log.w(LOG_TAG, "Start Button Pushed");
 			} else {
 				stopRecording();
+				
+				if(!serverRecordFailed) {
+					// server record did not fail
+					// so set video
+					setVideo(Global.BACK_PRESSED);
+				}else {
+					// store the value in the xml
+					CommonUtility.writeToXmlFile(mActivityId, 
+							ffmpeg_link1,
+							getFileSize(),
+							meter.getText().toString());
+					serverRecordFailed = false;
+				}
+				
 				Log.w(LOG_TAG, "Stop Button Pushed");
-				
-				CommonUtility.writeToXmlFile(mActivityId, 
-						ffmpeg_link1,
-						getFileSize(),
-						meter.getText().toString());
-				
-				// set video
-				setVideo(Global.BACK_PRESSED);
 			}
 		}
 	}

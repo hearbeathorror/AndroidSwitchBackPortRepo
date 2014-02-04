@@ -1,0 +1,53 @@
+public class ExternalStorageManager {
+	public static String InsuranceAppLogDIR = "";
+	public static String InsuranceAppXmlDIR = "";
+	public static String InsuranceAppVideosDIR = "";
+
+	private static void updateExternalStorageState() {
+		String state = Environment.getExternalStorageState();
+		if (Environment.MEDIA_MOUNTED.equals(state)) {
+			initExternalStorage();
+		} else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
+			deinitExternalStorage();
+		} else {
+			deinitExternalStorage();
+		}
+	}
+
+	public static void startWatchingExternalStorage() {
+		updateExternalStorageState();
+	}
+
+	/**
+	 * initializes the log directory path
+	 */
+	private static void initExternalStorage() {
+		InsuranceAppLogDIR = Environment.getExternalStorageDirectory()
+				.getAbsolutePath() + "/InsuranceApp/logs/";
+		if (new File(InsuranceAppLogDIR).exists() == false) {
+			File file = new File(InsuranceAppLogDIR);
+			file.mkdirs();
+		}
+
+		// create the xml directory
+		InsuranceAppXmlDIR = Environment.getExternalStorageDirectory()
+				.getAbsolutePath() + "/InsuranceApp/xml/";
+		if (new File(InsuranceAppXmlDIR).exists() == false) {
+			File file = new File(InsuranceAppXmlDIR);
+			file.mkdirs();
+		}
+
+		// create the video directory
+		InsuranceAppVideosDIR = Environment.getExternalStorageDirectory().getAbsolutePath() + "/InsuranceApp/videos/";
+		if (new File(InsuranceAppVideosDIR).exists() == false) {
+			File file = new File(InsuranceAppVideosDIR);
+			file.mkdirs();
+		}
+	}
+
+	private static void deinitExternalStorage() {
+		InsuranceAppLogDIR = "";
+		InsuranceAppXmlDIR = "";
+		InsuranceAppVideosDIR = "";
+	}
+}

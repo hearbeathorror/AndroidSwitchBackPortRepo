@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/tabiconheight"
+    android:fillViewport="true"
+    android:paddingLeft="@dimen/margin"
+    android:paddingRight="@dimen/margin"
+    android:paddingTop="@dimen/margin" >
+
+    <RelativeLayout
+        android:id="@+id/relAllLayers"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin"
+        android:paddingBottom="@dimen/margin"
+        android:background="@android:color/transparent" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/app_background"
+            android:layout_marginBottom="@dimen/margin" >
+
+            <RelativeLayout
+                android:id="@+id/relTopLayer"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_top_row" >
+
+                <ImageView
+                    android:id="@+id/imgInspector"
+                    android:layout_width="@dimen/video_width"
+                    android:layout_height="@dimen/video_width"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/profile_pic"
+                    android:contentDescription="@string/app_name" />
+
+                <RelativeLayout
+                    android:id="@+id/relInspectorInfo"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin"
+                    android:layout_toRightOf="@+id/imgInspector" >
+
+                    <TextView
+                        android:id="@+id/txtInspectorNameDetail"
+                        style="@style/txtStyleWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/name"
+                        android:textColor="@color/blue" />
+
+                    <TextView
+                        android:id="@+id/txtCityNameDetail"
+                        style="@style/txtStyleWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtInspectorNameDetail"
+                        android:text="@string/city"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textSize="@dimen/small_font" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relPlannedEventsLayer"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relTopLayer"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginRight="@dimen/margin"
+                android:layout_marginTop="@dimen/margin" >
+
+                <TextView
+                    android:id="@+id/lblPlannedEvents"
+                    style="@style/txtStyleWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin"
+                    android:text="@string/planned_events"
+                    android:textColor="@color/blue" />
+
+                <RelativeLayout
+                    android:id="@+id/relLayerList"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblPlannedEvents" >
+
+                    <com.azilen.insuranceapp.views.TwoWayView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/horizontalViewPlannedEvents"
+                        style="@style/TwoWayView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/horizontal_list_view_height"
+                        android:layout_marginTop="@dimen/margin_top_row"
+                        android:cacheColorHint="@android:color/transparent" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relMyVideos"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relPlannedEventsLayer"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginRight="@dimen/margin"
+                android:layout_marginTop="@dimen/margin" >
+
+                <TextView
+                    android:id="@+id/lblMyVideos"
+                    style="@style/txtStyleWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin"
+                    android:text="@string/videos"
+                    android:textColor="@color/blue" />
+
+                <RelativeLayout
+                    android:id="@+id/relVideosLayer"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblMyVideos" >
+
+                    <com.azilen.insuranceapp.views.TwoWayView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/horizontalViewVideos"
+                        style="@style/TwoWayView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/horizontal_list_view_height"
+                        android:layout_marginTop="@dimen/margin_top_row"
+                        android:cacheColorHint="@android:color/transparent" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

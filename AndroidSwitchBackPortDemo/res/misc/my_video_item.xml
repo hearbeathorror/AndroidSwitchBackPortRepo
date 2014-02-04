@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.azilen.insuranceapp.views.CustomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:layout_marginBottom="@dimen/tabiconheight">
+
+    <RelativeLayout
+        android:id="@+id/relAllLayers"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin"
+        android:paddingBottom="@dimen/margin"
+        android:background="@android:color/transparent">
+        
+        <RelativeLayout 
+            android:id="@+id/relBg"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin"
+            android:layout_marginRight="@dimen/margin"
+            android:layout_marginTop="@dimen/margin"
+            android:paddingBottom="@dimen/margin"
+            android:background="@drawable/app_background">
+
+        <RelativeLayout
+            android:id="@+id/relTopLayer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:padding="@dimen/margin_top_row"
+            android:gravity="center_vertical" >
+
+            <ImageView
+                android:id="@+id/imgUploadStatus"
+                android:layout_width="22dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_top_row"
+                android:layout_marginRight="@dimen/margin_top_row"
+                android:layout_marginTop="@dimen/margin_top_row"
+                android:background="@drawable/upload_complete"
+                android:contentDescription="@string/app_name" />
+
+            <TextView
+                android:id="@+id/txtUploadStatus"
+                style="@style/txtStyleWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/relRight"
+                android:layout_toRightOf="@+id/imgUploadStatus"
+                android:text="@string/upload_status"
+                android:textAppearance="?android:attr/textAppearanceSmall" 
+                android:textSize="@dimen/medium_font" />
+
+            <RelativeLayout
+                android:id="@+id/relRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" >
+
+                <ImageView
+                    android:id="@+id/imgFullView"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin_top_row"
+                    android:layout_marginTop="@dimen/margin_top_row"
+                    android:background="@drawable/zoom"
+                    android:clickable="true"
+                    android:contentDescription="@string/app_name" />
+
+                <LinearLayout
+                    android:id="@+id/sepLnr"
+                    android:layout_width="2dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/margin_top_row"
+                    android:layout_marginRight="@dimen/margin_top_row"
+                    android:layout_toRightOf="@+id/imgFullView"
+                    android:background="@drawable/line"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/txtDuration"
+                    style="@style/txtStyleWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/sepLnr"
+                    android:text="@string/date_time"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textSize="@dimen/medium_font" />
+
+                <LinearLayout
+                    android:id="@+id/sepLnr2"
+                    android:layout_width="2dp"
+                    android:layout_height="24dp"
+                    android:layout_marginLeft="@dimen/margin_top_row"
+                    android:layout_marginRight="@dimen/margin_top_row"
+                    android:layout_toRightOf="@+id/txtDuration"
+                    android:background="@drawable/line"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imgVideoStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin_top_row"
+                    android:layout_marginTop="@dimen/margin_top_row"
+                    android:layout_toRightOf="@+id/sepLnr2"
+                    android:background="@drawable/approved"
+                    android:contentDescription="@string/app_name" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <LinearLayout 
+            android:id="@+id/lnrSep"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/line"
+            android:layout_below="@+id/relTopLayer"
+            android:layout_marginLeft="@dimen/margin"
+            android:orientation="horizontal"
+            android:layout_marginBottom="@dimen/margin_top_row"
+            android:layout_marginRight="@dimen/margin"></LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/relVideo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lnrSep">
+
+            <ImageView
+                android:id="@+id/imgThumbNail"
+                android:contentDescription="@string/app_name"
+                android:layout_width="match_parent"
+                android:background="@drawable/thumbnail"
+                android:layout_height="@dimen/video_height_detail_view" />
+
+            <ImageView
+                android:id="@+id/imgPlay"
+                android:layout_width="@dimen/play_img_width"
+                android:layout_height="@dimen/play_img_height"
+                android:layout_centerInParent="true"
+                android:background="@drawable/play_big"
+                android:contentDescription="@string/app_name" />
+        </RelativeLayout>
+        
+        <LinearLayout 
+            android:id="@+id/lnrSep2"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/line"
+            android:layout_below="@+id/relVideo"
+            android:layout_marginTop="@dimen/margin_top_row"
+            android:layout_marginLeft="@dimen/margin"
+            android:orientation="horizontal"
+            android:layout_marginRight="@dimen/margin"></LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/thirdLayer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lnrSep2"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/margin" >
+
+            <RelativeLayout
+                android:id="@+id/relLeftVideo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/margin" >
+
+                <ImageView
+                    android:id="@+id/videoImage"
+                    android:layout_width="@dimen/video_width_horizontal"
+                    android:layout_height="@dimen/video_height_horizontal"
+                    android:background="@drawable/thumbnail"
+                    android:contentDescription="@string/app_name" />
+
+                <TextView
+                    android:id="@+id/txtTitleOfGroup"
+                    style="@style/txtStyleWhite"
+                    android:layout_width="@dimen/video_width_horizontal"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_title_drawable_blue"
+                    android:gravity="center_horizontal"
+                    android:text="@string/title_of_group"
+                    android:textAppearance="?android:attr/textAppearanceSmall" 
+                    android:textSize="@dimen/medium_font" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/eventDetails"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="@dimen/margin_top_row"
+                android:layout_marginRight="@dimen/margin"
+                android:layout_toRightOf="@+id/relLeftVideo" >
+
+                <TextView
+                    android:id="@+id/txtVideoName"
+                    style="@style/txtStyleWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/event_title"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/blue" 
+                    android:textSize="@dimen/medium_font" />
+
+                <TextView
+                    android:id="@+id/txtDate"
+                    style="@style/txtStyleWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtVideoName"
+                    android:layout_marginTop="@dimen/margin_top_row"
+                    android:text="@string/date_time"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textSize="@dimen/medium_font"  />
+                
+                <TextView
+                    android:id="@+id/txtTime"
+                    style="@style/txtStyleWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtDate"
+                    android:layout_marginTop="@dimen/margin_top_row"
+                    android:text="@string/date_time"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textSize="@dimen/medium_font"  />
+
+                <TextView
+                    android:id="@+id/txtSize"
+                    style="@style/txtStyleWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtTime"
+                    android:layout_marginTop="@dimen/margin_top_row"
+                    android:text="@string/size"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textSize="@dimen/medium_font"  />
+            </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout
+                android:id="@+id/relPlaceDetails"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_top_row"
+                android:layout_below="@+id/thirdLayer"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_marginTop="@dimen/margin">
+                
+                <RelativeLayout 
+                android:id="@+id/relRightPlaceDetails"
+                android:layout_width="fill_parent"
+                android:layout_marginRight="@dimen/margin_top_row"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/txtPlaceLbl"
+                    style="@style/txtStyleWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/place"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/medium_font"  />
+
+                <TextView
+                    android:id="@+id/txtCityName"
+                    style="@style/txtStyleWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/txtPlaceLbl"
+                    android:gravity="right"
+                    android:layout_marginLeft="@dimen/margin_top_row"
+                    android:text="@string/city_name"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textSize="@dimen/medium_font"  />
+
+                <TextView
+                    android:id="@+id/txtStreetName"
+                    style="@style/txtStyleWhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/txtCityName"
+                    android:layout_marginLeft="@dimen/margin_top_row"
+                    android:text="@string/street_name"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textSize="@dimen/medium_font" />
+            </RelativeLayout>
+            
+                    <RelativeLayout 
+                        android:id="@+id/relMapDetails"
+                        android:layout_width="fill_parent"
+                        android:layout_height="@dimen/map_view_height"
+                        android:layout_marginRight="@dimen/margin_top_row"
+                        android:visibility="gone"
+                        android:layout_below="@+id/relRightPlaceDetails">
+                	<com.google.android.gms.maps.MapView
+                        android:id="@+id/mapview"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/margin_top_row"
+                        android:background="@android:color/transparent"
+                        zOrderOnTop="true" >
+                    </com.google.android.gms.maps.MapView>
+                    
+                	<ImageView
+                        android:id="@+id/imgTemp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="@string/app_name" />
+
+                    <ImageView
+                        android:id="@+id/imgZoom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/search_icon"
+                        android:clickable="true"
+                        android:contentDescription="@string/app_name" />
+                    </RelativeLayout>
+            </RelativeLayout>
+        <RelativeLayout 
+            android:id="@+id/relRatingAndPlaceLayer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin"
+            android:layout_below="@+id/relPlaceDetails">
+            <RelativeLayout 
+                android:id="@+id/relLeftRating"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_alignParentLeft="true">
+                <RelativeLayout 
+                    android:id="@+id/lnrRatingBar"
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:layout_marginRight="@dimen/margin"
+                    android:layout_height="@dimen/claim_dimen">
+                    <RatingBar 
+                    	android:id="@+id/ratingBar"
+                    	android:layout_width="wrap_content"
+                    	android:layout_height="@dimen/claim_dimen"
+                    	android:clickable="false"
+                    	style="@style/StarRatingBar"
+                    	android:layout_centerVertical="true"
+                    	android:numStars="5"
+                    	android:layout_marginRight="@dimen/margin_top_row"/>
+                </RelativeLayout>
+                <Button 
+                    android:id="@+id/btnClaimValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/claim_dimen"
+                    android:clickable="false"
+                    android:enabled="false"
+                    style="@style/txtStyleWhite"
+                    android:gravity="center"
+                    android:background="@drawable/circular_view"
+                    android:layout_centerVertical="true"
+                    android:text="@string/claim_value"
+                    android:layout_marginRight="@dimen/margin_top_row"
+                    android:layout_toRightOf="@+id/lnrRatingBar"
+                    android:textSize="@dimen/medium_font"/>
+            </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout 
+            android:id="@+id/relApproveReject"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relRatingAndPlaceLayer">
+            <CheckBox 
+                android:id="@+id/chckBoxApproveVideo"
+                android:layout_width="@dimen/rating_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/space"
+                android:layout_centerVertical="true"
+                android:text="@string/approve_video"
+                style="@style/txtStyleWhite"/>
+            
+             <RelativeLayout 
+            android:id="@+id/relDoneLayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/chckBoxApproveVideo">
+            <Button 
+                android:id="@+id/btnDone"
+                android:layout_width="wrap_content"
+                android:layout_height="40dip"
+                android:text="@string/done"
+                style="@style/txtStyleWhite"
+                android:textSize="@dimen/small_font"
+                android:background="@drawable/login_button_selector_blue"/>
+        </RelativeLayout>
+        </RelativeLayout>
+        <RelativeLayout 
+            android:id="@+id/relSlider"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_below="@+id/relApproveReject">
+            <SeekBar 
+                android:id="@+id/rateSeekBar"
+                android:layout_width="@dimen/rating_width"
+                android:layout_height="wrap_content"
+                android:maxHeight="3dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin_top_row"
+                android:layout_marginLeft="@dimen/margin"
+                android:progressDrawable="@drawable/slider_progress"
+                android:max="10"/>
+        </RelativeLayout>
+        <RelativeLayout 
+            android:id="@+id/userLayer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_below="@+id/relSlider">
+            <ImageView 
+                android:id="@+id/userAvatar"
+                android:layout_width="@dimen/user_avatar_width"
+                android:layout_height="@dimen/user_avatar_height"
+                android:background="@drawable/profile_pic"
+                android:contentDescription="@string/app_name"
+                android:layout_marginLeft="@dimen/margin"
+                android:layout_alignParentLeft="true"/>
+            <TextView 
+                android:id="@+id/txtUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:layout_centerVertical="true"
+                style="@style/txtStyleWhite"
+                android:layout_marginLeft="@dimen/margin_top_row"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:layout_toRightOf="@+id/userAvatar"
+                android:textSize="@dimen/medium_font" 
+                android:textColor="@color/blue"/>
+        </RelativeLayout>
+        <RelativeLayout 
+            android:id="@+id/relVideoStatus"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userLayer"
+            android:layout_marginTop="@dimen/margin_top_row">
+            <ImageView 
+                android:id="@+id/imgIsApproved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/app_name"
+                android:background="@drawable/action_approved"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin"/>
+            <TextView 
+                android:id="@+id/txtIsVideoApproved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/approved"
+                style="@style/txtStyleWhite"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/margin_top_row"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/margin_top_row"
+                android:layout_marginRight="@dimen/margin_top_row"
+                android:layout_centerInParent="true"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="@dimen/medium_font" 
+                android:layout_toLeftOf="@+id/relRightBtns"
+                android:layout_toRightOf="@+id/imgIsApproved"/>
+            <RelativeLayout 
+                android:id="@+id/relRightBtns"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/margin"
+                android:layout_alignParentRight="true">
+                <ImageButton 
+                    android:id="@+id/imgBtnToggleDesc"
+                    android:layout_width="50dip"
+                    android:layout_height="45dip"
+                    android:layout_centerVertical="true"
+                    android:clickable="true"
+                    android:background="@drawable/info_box"
+                    android:layout_marginRight="@dimen/margin_top_row"
+                    android:contentDescription="@string/app_name"/>
+            </RelativeLayout>
+        </RelativeLayout>
+        
+        <TextView
+                android:id="@+id/txtDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:layout_below="@+id/relVideoStatus"
+                android:layout_margin="@dimen/margin_top_row"
+                style="@android:style/TextAppearance.Small"
+                android:textSize="@dimen/small_font" 
+                android:visibility="gone"
+                android:text="@string/dummy_text" />
+        <RelativeLayout 
+            android:id="@+id/relLayoutBottom"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_below="@+id/txtDescription">
+            <ImageButton
+                android:contentDescription="@string/app_name"
+                android:id="@+id/imgBtnBack"
+                android:layout_width="@dimen/map_view_topbar_height"
+                android:layout_height="@dimen/map_view_topbar_height"
+                android:background="@drawable/back_non_circular_selector"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:clickable="true"
+                android:layout_marginTop="@dimen/margin_top_row"
+                android:layout_marginLeft="@dimen/margin"/>
+        </RelativeLayout>
+    </RelativeLayout>
+    </RelativeLayout>
+</com.azilen.insuranceapp.views.CustomScrollView>

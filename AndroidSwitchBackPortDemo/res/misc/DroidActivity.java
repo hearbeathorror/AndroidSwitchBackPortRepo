@@ -54,7 +54,7 @@ public class DroidActivity extends Activity implements OnClickListener {
 	private PowerManager.WakeLock mWakeLock;
 	private String ffmpeg_link = "rtmp://myusername:mypassword@192.168.3.20:1935/live/I";
 	// private String ffmpeg_link = "rtmp://54.229.196.152/livecf/"+vidName;
-	private String ffmpeg_link1 = ExternalStorageManager.InsuranceAppVideosDIR + "appVid" + ".mp4";
+	private String ffmpeg_local_video_path = ExternalStorageManager.InsuranceAppVideosDIR + "appVid" + ".mp4";
 
 	private volatile FFmpegFrameRecorder recorder, localRecorder;
 	boolean recording = false;
@@ -100,7 +100,7 @@ public class DroidActivity extends Activity implements OnClickListener {
 		// this will not be null
 		// but just incase
 		if(mActivityId != null) {
-			ffmpeg_link1 = ExternalStorageManager.InsuranceAppVideosDIR + mActivityId + ".mp4";
+			ffmpeg_local_video_path = ExternalStorageManager.InsuranceAppVideosDIR + mActivityId + ".mp4";
 			ffmpeg_link = "rtmp://myusername:mypassword@192.168.3.20:1935/live/" + mActivityId;
 			//ffmpeg_link = "rtmp://54.229.196.152/livecf/"+ mActivityId;
 		}
@@ -214,9 +214,9 @@ public class DroidActivity extends Activity implements OnClickListener {
 		recorder.setFrameRate(frameRate);
 		Log.v(LOG_TAG, "recorder.setFrameRate(frameRate)");
 
-		localRecorder = new FFmpegFrameRecorder(ffmpeg_link1, imageWidth,
+		localRecorder = new FFmpegFrameRecorder(ffmpeg_local_video_path, imageWidth,
 				imageHeight, 1);
-		Log.v(LOG_TAG, "FFmpegFrameRecorder: " + ffmpeg_link1 + " imageWidth: "
+		Log.v(LOG_TAG, "FFmpegFrameRecorder: " + ffmpeg_local_video_path + " imageWidth: "
 				+ imageWidth + " imageHeight " + imageHeight);
 
 		localRecorder.setFormat("mp4");
@@ -255,7 +255,14 @@ public class DroidActivity extends Activity implements OnClickListener {
 		meter.setBase(SystemClock.elapsedRealtime());
 		meter.start();
 		recording = true;
-		audioThread.start();
+		
+		try {
+			audioThread.start();
+		}catch(Exception e) {
+			Log.e("dhara",e.getMessage() + " ");
+			e.printStackTrace();
+		}
+		
 	}
 
 	public void startRecordingLocal() {
@@ -312,25 +319,38 @@ public class DroidActivity extends Activity implements OnClickListener {
 		}
 	}
 
-	@Override
+	/*@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		// Quit when back button is pushed
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			if (recording) {
-				stopRecording();
-				stopRecordingLocal();
-				
-				// set video
-				setVideo(Global.BACK_PRESSED);
-				return false;
-			}else {
-				return super.onKeyDown(keyCode, event);
-			}
+			
 		}
 		return super.onKeyDown(keyCode, event);
+	}*/
+	
+	@Override
+	public void onBackPressed() {
+		if (recording) {
+			stopRecording();
+			stopRecordingLocal();
+			
+			if(!serverRecordFailed) {
+				// video loaded on the server
+				// set video
+				setVideo();
+			}else {
+				// write in the xml file
+				writeToXmlVidNotSet();
+				super.onBackPressed();
+				overridePendingTransition(R.anim.activity_finish_in_anim, R.anim.activity_finish_out_anim);
+			}
+		}else {
+			super.onBackPressed();
+			overridePendingTransition(R.anim.activity_finish_in_anim, R.anim.activity_finish_out_anim);
+		}
 	}
 	
-	private void setVideo(String backPressed) {
+	private void setVideo() {
 		SetVideoRequest setVideoRequest = new SetVideoRequest();
 		setVideoRequest.setVideoDuration(meter.getText().toString());
 		setVideoRequest.setActivityId(mActivityId);
@@ -340,7 +360,7 @@ public class DroidActivity extends Activity implements OnClickListener {
 		setVideoRequest.setVideoSize(getFileSize());
 		
 		new SetVideoAsyncTask(DroidActivity.this, setVideoRequest, 
-				Global.FROM_DROID_ACTIVITY, backPressed).execute();
+				Global.FROM_DROID_ACTIVITY, ffmpeg_local_video_path).execute();
 	}
 
 	@Override
@@ -358,12 +378,8 @@ public class DroidActivity extends Activity implements OnClickListener {
 			} else {
 				stopRecordingLocal();
 				Log.w(LOG_TAG, "Stop Button Pushed");
-				
-				// store the id in the xml
-				CommonUtility.writeToXmlFile(mActivityId, 
-						ffmpeg_link1,
-						getFileSize(),
-						meter.getText().toString());
+				writeToXmlVidNotSet();
+				onBackPressed();
 			}
 		} else {
 			if (!recording) {
@@ -375,19 +391,24 @@ public class DroidActivity extends Activity implements OnClickListener {
 				if(!serverRecordFailed) {
 					// server record did not fail
 					// so set video
-					setVideo(Global.BACK_PRESSED);
+					setVideo();
 				}else {
-					// store the value in the xml
-					CommonUtility.writeToXmlFile(mActivityId, 
-							ffmpeg_link1,
-							getFileSize(),
-							meter.getText().toString());
-					serverRecordFailed = false;
+					writeToXmlVidNotSet();
+					onBackPressed();
 				}
 				
 				Log.w(LOG_TAG, "Stop Button Pushed");
 			}
 		}
+	}
+	
+	private void writeToXmlVidNotSet() {
+		// store the value in the xml
+		CommonUtility.writeToXmlFile(mActivityId, 
+				ffmpeg_local_video_path,
+				getFileSize(),
+				meter.getText().toString());
+		serverRecordFailed = false;
 	}
 
 	// ---------------------------------------------
@@ -646,8 +667,8 @@ public class DroidActivity extends Activity implements OnClickListener {
 	/**
 	 * Update the value in the xml for the video
 	 */
-	public void updateValues(String response, String isBackPressed, 
-			SetVideoRequest setVideoRequest, String videoPath) {
+	public void updateValues(String response, SetVideoRequest setVideoRequest, 
+			String videoPath) {
 		// if this method is called it means that the video 
 		// has been sent to the server successfully.
 		
@@ -666,12 +687,8 @@ public class DroidActivity extends Activity implements OnClickListener {
 			PlannedEventsManager.getInstance().removeVideoFromPlannedEvents(mActivityId);
 		}
 		
-		if(isBackPressed != null) {
-			// back has been pressed
-			// now finish this activity
-			super.onBackPressed();
-			overridePendingTransition(R.anim.activity_finish_in_anim, R.anim.activity_finish_out_anim);
-		}
+		// now finish this activity
+		onBackPressed();
 	}
 	
 	private String getFileSize() {

@@ -23,7 +23,6 @@ public class SetVideoAsyncTask extends AsyncTask<Void, Void, String>{
 	private SetVideoRequest mSetVideoRequest;
 	private String mFrom;
 	private ProgressDialog mProgressDialog;
-	private String mIsBackPressed;
 	private String mVideoPath;
 
 	/**
@@ -38,23 +37,6 @@ public class SetVideoAsyncTask extends AsyncTask<Void, Void, String>{
 		mContext = context;
 		mSetVideoRequest = setVideoRequest;
 		mFrom = from;
-		mVideoPath = videoPath;
-	}
-	
-	/**
-	 * Constructor
-	 * @param context
-	 * @param setVideoRequest
-	 * @param from
-	 * @param isBackPressed
-	 * @param videoPath
-	 */
-	public SetVideoAsyncTask(Context context, 
-			SetVideoRequest setVideoRequest, String from, String isBackPressed, String videoPath) {
-		mContext = context;
-		mSetVideoRequest = setVideoRequest;
-		mFrom = from;
-		mIsBackPressed = isBackPressed;
 		mVideoPath = videoPath;
 	}
 	
@@ -82,7 +64,7 @@ public class SetVideoAsyncTask extends AsyncTask<Void, Void, String>{
 		
 		if(mFrom.equalsIgnoreCase(Global.FROM_DROID_ACTIVITY)) {
 			mProgressDialog.dismiss();
-			((DroidActivity)mContext).updateValues(result, mIsBackPressed, mSetVideoRequest, mVideoPath);
+			((DroidActivity)mContext).updateValues(result, mSetVideoRequest, mVideoPath);
 		}else if(mFrom.equalsIgnoreCase(Global.FROM_SERVICE)) {
 			if(result != null) {
 				// delete the value from xml

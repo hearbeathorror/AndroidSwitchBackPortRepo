@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name"> Insurance App</string>
+    <string name="menu_settings">Settings</string>
+    <string name="loading">Loading...</string>
+    <string name="something_has_gone_wrong">Something seems to have gone wrong!</string>
+
+    <string name="planned_events">PLANNED EVENTS</string>
+    <string name="my_videos">MY VIDEOS</string>
+    <string name="my_team">MY TEAM</string>
+    <string name="events">MY EVENTS</string>
+    <string name="videos">VIDEOS</string>
+    
+    <string name="date_time">Date-time</string>
+    <string name="event_type">Event type</string>
+    <string name="inspector">Inspector</string>
+    <string name="upload">Upload</string>
+    <string name="inspection">Inspection</string>
+    <string name="city">City</string>
+    <string name="title_of_group">GROUP TITLE</string>
+    <string name="event_title">EVENT TITLE</string>
+    <string name="name">NAME</string>
+    <string name="video_name">VIDEO NAME</string>
+   	<string name="size">SIZE: </string>
+   	<string name="upload_status">Upload complete!</string>
+   	<string name="not_uploaded">Not uploaded!</string>
+   	<string name="value_symbol">$</string>
+   	<string name="video_uploaded">Upload complete!</string>
+   	<string name="video_not_uploaded">Upload not complete!</string>
+   	<string name="place">PLACE</string>
+   	<string name="city_name">Warsaw</string>
+   	<string name="street_name">Warsaw Street</string>
+   	<string name="approved">action approved</string>
+   	<string name="rejected">rejected</string>
+   	<string name="not_approved">action not approved</string>
+   	<string name="claim_value">20$</string>
+   	<string name="yes">YES</string>
+   	<string name="no">NO</string>
+   	<string name="approve_video">Approve video?</string>
+   	<string name="ok">OK</string>
+   	<string name="no_videos">No Videos</string>
+   	<string name="no_events">No Events</string>
+    <string name="no_team">No Teams</string>
+    <string name="done">Done</string>
+    <string name="ready">Ready</string>
+    <string name="please_wait">Please wait...</string>
+    <string name="done_activities">Done activities</string>
+    <string name="planned_events_small">Planned events</string>
+   	
+   	<string name="enter_password">Please enter the password!</string>
+   	<string name="enter_username">Please enter the username!</string>
+   	<string name="invalid_username_or_password">Invalid username or password!</string>
+   	<string name="server_cannot_be_reached">Server cannot be reached!</string>
+   	
+   	<!-- 10 seconds -->
+   	<string name="service_call_time">10000</string>
+    
+   	<string name="WEBSERVICE_URL">http://54.229.187.185/rest_api/user</string>
+   	<string name="VIDEO_SERVER_URL">http://192.168.3.20:1935</string>
+    <string name="log_in">LOGIN</string>
+    <string name="logout">LOGOUT</string>
+    <string name="username">Username</string>
+    <string name="password">PASSWORD</string>
+    <string name="nickname">NICK NAME</string>
+    <string name="settings">SETTINGS</string>
+    <string name="sync_videos">SYNC VIDEOS</string>
+    <string name="sync_vids_over_wifi">SYNC VIDEOS OVER WIFI</string>
+    <string name="numb_of_showing_events">NUMBER OF SHOWING EVENTS</string>
+    <string name="dummy_text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
+</resources>

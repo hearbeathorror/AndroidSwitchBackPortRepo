@@ -24,7 +24,6 @@ import android.os.PowerManager;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.Display;
-import android.view.KeyEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -37,6 +36,7 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.RelativeLayout;
 
 import com.azilen.insuranceapp.R;
+import com.azilen.insuranceapp.asynctasks.CheckIfServerIsRunningAsyncTask;
 import com.azilen.insuranceapp.asynctasks.SetVideoAsyncTask;
 import com.azilen.insuranceapp.entities.network.request.SetVideoRequest;
 import com.azilen.insuranceapp.managers.plannedevents.PlannedEventsManager;
@@ -200,34 +200,24 @@ public class DroidActivity extends Activity implements OnClickListener {
 
 		recorder = new FFmpegFrameRecorder(ffmpeg_link, imageWidth,
 				imageHeight, 1);
-		Log.v(LOG_TAG, "FFmpegFrameRecorder: " + ffmpeg_link + " imageWidth: "
-				+ imageWidth + " imageHeight " + imageHeight);
 
 		recorder.setFormat("rtsp");
         recorder.setVideoCodec(28);
-		Log.v(LOG_TAG, "recorder.setFormat(\"flv\")");
 
 		recorder.setSampleRate(sampleAudioRateInHz);
-		Log.v(LOG_TAG, "recorder.setSampleRate(sampleAudioRateInHz)");
 
 		// re-set in the surface changed method as well
 		recorder.setFrameRate(frameRate);
-		Log.v(LOG_TAG, "recorder.setFrameRate(frameRate)");
 
 		localRecorder = new FFmpegFrameRecorder(ffmpeg_local_video_path, imageWidth,
 				imageHeight, 1);
-		Log.v(LOG_TAG, "FFmpegFrameRecorder: " + ffmpeg_local_video_path + " imageWidth: "
-				+ imageWidth + " imageHeight " + imageHeight);
 
 		localRecorder.setFormat("mp4");
-		Log.v(LOG_TAG, "recorder.setFormat(\"flv\")");
 
 		localRecorder.setSampleRate(sampleAudioRateInHz);
-		Log.v(LOG_TAG, "recorder.setSampleRate(sampleAudioRateInHz)");
 
 		// re-set in the surface changed method as well
 		localRecorder.setFrameRate(frameRate);
-		Log.v(LOG_TAG, "recorder.setFrameRate(frameRate)");
 
 		// Create audio recording thread
 		audioRecordRunnable = new AudioRecordRunnable();
@@ -256,13 +246,7 @@ public class DroidActivity extends Activity implements OnClickListener {
 		meter.start();
 		recording = true;
 		
-		try {
-			audioThread.start();
-		}catch(Exception e) {
-			Log.e("dhara",e.getMessage() + " ");
-			e.printStackTrace();
-		}
-		
+		audioThread.start();
 	}
 
 	public void startRecordingLocal() {
@@ -318,16 +302,18 @@ public class DroidActivity extends Activity implements OnClickListener {
 			localRecorder = null;
 		}
 	}
-
-	/*@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// Quit when back button is pushed
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			
-		}
-		return super.onKeyDown(keyCode, event);
-	}*/
 	
+	public void recordVideo(Boolean result) {
+		if(result) {
+			startRecording();
+			Log.e("dhara", "server recording! " + result);
+		}else {
+			Log.e("dhara", "local recording! " + result);
+			serverRecordFailed = true;
+			startRecordingLocal();
+		}
+	}
+
 	@Override
 	public void onBackPressed() {
 		if (recording) {
@@ -373,6 +359,7 @@ public class DroidActivity extends Activity implements OnClickListener {
 		
 		if (!NetworkStatus.isConnected()) {
 			if (!recording) {
+				serverRecordFailed = true;
 				startRecordingLocal();
 				Log.w(LOG_TAG, "Start Button Pushed");
 			} else {
@@ -383,7 +370,7 @@ public class DroidActivity extends Activity implements OnClickListener {
 			}
 		} else {
 			if (!recording) {
-				startRecording();
+				new CheckIfServerIsRunningAsyncTask(DroidActivity.this).execute();
 				Log.w(LOG_TAG, "Start Button Pushed");
 			} else {
 				stopRecording();
@@ -418,62 +405,76 @@ public class DroidActivity extends Activity implements OnClickListener {
 
 		@Override
 		public void run() {
-			// Set the thread priority
-			android.os.Process
-					.setThreadPriority(android.os.Process.THREAD_PRIORITY_URGENT_AUDIO);
+			try {
 
-			// Audio
-			int bufferSize;
-			short[] audioData;
-			int bufferReadResult;
+				// Set the thread priority
+				android.os.Process
+						.setThreadPriority(android.os.Process.THREAD_PRIORITY_URGENT_AUDIO);
 
-			bufferSize = AudioRecord.getMinBufferSize(sampleAudioRateInHz,
-					AudioFormat.CHANNEL_CONFIGURATION_MONO,
-					AudioFormat.ENCODING_PCM_16BIT);
-			audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC,
-					sampleAudioRateInHz,
-					AudioFormat.CHANNEL_CONFIGURATION_MONO,
-					AudioFormat.ENCODING_PCM_16BIT, bufferSize);
+				// Audio
+				int bufferSize;
+				short[] audioData;
+				int bufferReadResult;
 
-			audioData = new short[bufferSize];
+				bufferSize = AudioRecord.getMinBufferSize(sampleAudioRateInHz,
+						AudioFormat.CHANNEL_CONFIGURATION_MONO,
+						AudioFormat.ENCODING_PCM_16BIT);
+				audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC,
+						sampleAudioRateInHz,
+						AudioFormat.CHANNEL_CONFIGURATION_MONO,
+						AudioFormat.ENCODING_PCM_16BIT, bufferSize);
 
-			Log.d(LOG_TAG, "audioRecord.startRecording()");
-			audioRecord.startRecording();
+				audioData = new short[bufferSize];
 
-			// Audio Capture/Encoding Loop
-			while (runAudioThread) {
-				// Read from audioRecord
-				bufferReadResult = audioRecord.read(audioData, 0,
-						audioData.length);
-				if (bufferReadResult > 0) {
-					// Log.v(LOG_TAG,"audioRecord bufferReadResult: " +
-					// bufferReadResult);
+				Log.d(LOG_TAG, "audioRecord.startRecording()");
+				audioRecord.startRecording();
 
-					// Changes in this variable may not be picked up despite it
-					// being "volatile"
-					if (recording) {
-						try {
-							// Write to FFmpegFrameRecorder
 
-							Buffer[] buffer = { ShortBuffer.wrap(audioData, 0,
-									bufferReadResult) };
-							localRecorder.record(buffer);
-							recorder.record(buffer);
-						} catch (FFmpegFrameRecorder.Exception e) {
-							Log.v(LOG_TAG, e.getMessage());
-							e.printStackTrace();
+				// Audio Capture/Encoding Loop
+				while (runAudioThread) {
+					// Read from audioRecord
+					bufferReadResult = audioRecord.read(audioData, 0,
+							audioData.length);
+					if (bufferReadResult > 0) {
+						// Log.v(LOG_TAG,"audioRecord bufferReadResult: " +
+						// bufferReadResult);
+
+						// Changes in this variable may not be picked up despite it
+						// being "volatile"
+						if (recording) {
+							try {
+								// Write to FFmpegFrameRecorder
+
+								Buffer[] buffer = { ShortBuffer.wrap(audioData, 0,
+										bufferReadResult) };
+								localRecorder.record(buffer);
+								recorder.record(buffer);
+							} catch (FFmpegFrameRecorder.Exception e) {
+								serverRecordFailed =true;
+								Log.v(LOG_TAG, e.getMessage());
+								e.printStackTrace();
+							} catch(Exception e) {
+								serverRecordFailed =true;
+								Log.v(LOG_TAG, e.getMessage());
+								e.printStackTrace();
+							}
 						}
 					}
 				}
-			}
-			Log.v(LOG_TAG, "AudioThread Finished");
+			
+				
+				Log.v(LOG_TAG, "AudioThread Finished");
 
-			/* Capture/Encoding finished, release recorder */
-			if (audioRecord != null) {
-				audioRecord.stop();
-				audioRecord.release();
-				audioRecord = null;
-				Log.v(LOG_TAG, "audioRecord released");
+				/* Capture/Encoding finished, release recorder */
+				if (audioRecord != null) {
+					audioRecord.stop();
+					audioRecord.release();
+					audioRecord = null;
+					Log.v(LOG_TAG, "audioRecord released");
+				}
+			
+			}catch(Exception e) {
+				Log.e("dhara","stopped");
 			}
 		}
 	}

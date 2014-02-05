@@ -73,9 +73,6 @@ public class SetVideoAsyncTask extends AsyncTask<Void, Void, String>{
 				performPostRequest(RequestType.SET_VIDEO, mSetVideoRequest);
 
 		// output is just ["true"] or ["false"]
-		if(response != null) {
-		
-		}
 		return response;
 	}
 
@@ -85,7 +82,7 @@ public class SetVideoAsyncTask extends AsyncTask<Void, Void, String>{
 		
 		if(mFrom.equalsIgnoreCase(Global.FROM_DROID_ACTIVITY)) {
 			mProgressDialog.dismiss();
-			((DroidActivity)mContext).updateValues(result, mIsBackPressed);
+			((DroidActivity)mContext).updateValues(result, mIsBackPressed, mSetVideoRequest, mVideoPath);
 		}else if(mFrom.equalsIgnoreCase(Global.FROM_SERVICE)) {
 			if(result != null) {
 				// delete the value from xml

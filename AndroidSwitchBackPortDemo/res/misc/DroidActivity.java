@@ -646,11 +646,18 @@ public class DroidActivity extends Activity implements OnClickListener {
 	/**
 	 * Update the value in the xml for the video
 	 */
-	public void updateValues(String response, String isBackPressed) {
-		if(response != null) {
-			CommonUtility.modifyIsVideoSetValue(mActivityId, "1");
-		}else {
-			CommonUtility.modifyIsVideoSetValue(mActivityId, "0");
+	public void updateValues(String response, String isBackPressed, 
+			SetVideoRequest setVideoRequest, String videoPath) {
+		// if this method is called it means that the video 
+		// has been sent to the server successfully.
+		
+		// if the set video response is null
+		// then the video is equivalent to not being saved
+		// hence write the value again in the xml
+		// otherwise delete the node from the xml
+		if(response == null) {
+			CommonUtility.writeToXmlFile(setVideoRequest.getActivityId(),
+					videoPath, setVideoRequest.getVideoSize(), setVideoRequest.getVideoDuration());
 			Log.e("dhara","vid not set");
 		}
 		

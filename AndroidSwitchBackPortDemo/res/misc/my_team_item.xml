@@ -123,6 +123,7 @@
                     android:id="@+id/relVideosLayer"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/margin"
                     android:layout_below="@+id/lblMyVideos" >
 
                     <com.azilen.insuranceapp.views.TwoWayView

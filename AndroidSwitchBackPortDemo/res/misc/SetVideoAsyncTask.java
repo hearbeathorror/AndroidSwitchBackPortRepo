@@ -3,6 +3,7 @@ package com.azilen.insuranceapp.asynctasks;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.azilen.insuranceapp.R;
 import com.azilen.insuranceapp.entities.network.request.SetVideoRequest;
@@ -77,8 +78,7 @@ public class SetVideoAsyncTask extends AsyncTask<Void, Void, String>{
 						mSetVideoRequest.getVideoSize(), 
 						mSetVideoRequest.getVideoDuration());
 			}
-			
-			((UploadVideoService)mContext).uploadVid();
+			UploadVideoService.isServiceRunning = false;
 		}
 	}
 }

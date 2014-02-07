@@ -5,15 +5,18 @@ import java.util.List;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.util.Log;
 
-import com.azilen.insuranceapp.asynctasks.DemoSftp;
 import com.azilen.insuranceapp.asynctasks.SetVideoAsyncTask;
+import com.azilen.insuranceapp.asynctasks.UploadVideoAsyncTask;
 import com.azilen.insuranceapp.entities.VideosToUpload;
 import com.azilen.insuranceapp.entities.network.request.SetVideoRequest;
 import com.azilen.insuranceapp.utils.CommonUtility;
 import com.azilen.insuranceapp.utils.Global;
+import com.azilen.insuranceapp.utils.Logger;
 import com.azilen.insuranceapp.utils.NetworkStatus;
 import com.azilen.insuranceapp.utils.Prefs;
+import com.azilen.insuranceapp.utils.Logger.modules;
 
 /**
  * Service that uploads the video (if any is pending)
@@ -25,6 +28,7 @@ import com.azilen.insuranceapp.utils.Prefs;
 public class UploadVideoService extends Service {
 	private int connectedTo;
 	private String TAG =this.getClass().getSimpleName();
+	public static boolean isServiceRunning = false;
 	
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -61,20 +65,24 @@ public class UploadVideoService extends Service {
 	}
 	
 	public void uploadVid() {
-		// changes as on 4th Feb 2014
-		// the video will first be uploaded and then set.
-		// get a list of videos
-		List<VideosToUpload> vids = CommonUtility.getVideosToUpload();
-		
-		if(vids != null && vids.size() > 0) {
-			// get the first video always
-			// since only one video will be uploaded at a time
-			VideosToUpload vid = vids.get(0);
-			new DemoSftp(UploadVideoService.this, vid, Global.FROM_SERVICE).execute();
+		if(!isServiceRunning) {
+			isServiceRunning = true;
+			Logger.i(modules.INSURANCE_APP, TAG, "upload video method in service called !");
+			// changes as on 4th Feb 2014
+			// the video will first be uploaded and then set.
+			// get a list of videos
+			List<VideosToUpload> vids = CommonUtility.getVideosToUpload();
+			
+			if(vids != null && vids.size() > 0) {
+				// get the first video always
+				// since only one video will be uploaded at a time
+				VideosToUpload vid = vids.get(0);
+				new UploadVideoAsyncTask(UploadVideoService.this, vid, Global.FROM_SERVICE).execute();
+			}else {
+				isServiceRunning = false;
+			}
+			// changes end here
 		}
-		// changes end here
-		
-		
 	}
 	
 	public void setVideo(VideosToUpload vidToUpload, String videoPath) {

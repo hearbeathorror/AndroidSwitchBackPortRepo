@@ -186,42 +186,51 @@ public class DroidActivity extends Activity implements OnClickListener {
 	}
 
 	private void initRecorder() {
-		Log.w(LOG_TAG, "initRecorder");
+		try {
 
-		if (yuvIplimage == null) {
-			// Recreated after frame size is set in surface change method
-			yuvIplimage = IplImage.create(imageWidth, imageHeight,
-					IPL_DEPTH_8U, 2);
-			// yuvIplimage = IplImage.create(imageWidth,
-			// imageHeight,IPL_DEPTH_32S, 2);
+			Log.w(LOG_TAG, "initRecorder");
 
-			Log.v(LOG_TAG, "IplImage.create");
+			if (yuvIplimage == null) {
+				// Recreated after frame size is set in surface change method
+				try {
+					yuvIplimage = IplImage.create(imageWidth, imageHeight,
+							IPL_DEPTH_8U, 2);
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+				// yuvIplimage = IplImage.create(imageWidth,
+				// imageHeight,IPL_DEPTH_32S, 2);
+
+				Log.v(LOG_TAG, "IplImage.create");
+			}
+
+			recorder = new FFmpegFrameRecorder(ffmpeg_link, imageWidth,
+					imageHeight, 1);
+
+			recorder.setFormat("rtsp");
+	        recorder.setVideoCodec(28);
+
+			recorder.setSampleRate(sampleAudioRateInHz);
+
+			// re-set in the surface changed method as well
+			recorder.setFrameRate(frameRate);
+
+			localRecorder = new FFmpegFrameRecorder(ffmpeg_local_video_path, imageWidth,
+					imageHeight, 1);
+
+			localRecorder.setFormat("mp4");
+
+			localRecorder.setSampleRate(sampleAudioRateInHz);
+
+			// re-set in the surface changed method as well
+			localRecorder.setFrameRate(frameRate);
+
+			// Create audio recording thread
+			audioRecordRunnable = new AudioRecordRunnable();
+			audioThread = new Thread(audioRecordRunnable);
+		}catch(Exception e) {
+		
 		}
-
-		recorder = new FFmpegFrameRecorder(ffmpeg_link, imageWidth,
-				imageHeight, 1);
-
-		recorder.setFormat("rtsp");
-        recorder.setVideoCodec(28);
-
-		recorder.setSampleRate(sampleAudioRateInHz);
-
-		// re-set in the surface changed method as well
-		recorder.setFrameRate(frameRate);
-
-		localRecorder = new FFmpegFrameRecorder(ffmpeg_local_video_path, imageWidth,
-				imageHeight, 1);
-
-		localRecorder.setFormat("mp4");
-
-		localRecorder.setSampleRate(sampleAudioRateInHz);
-
-		// re-set in the surface changed method as well
-		localRecorder.setFrameRate(frameRate);
-
-		// Create audio recording thread
-		audioRecordRunnable = new AudioRecordRunnable();
-		audioThread = new Thread(audioRecordRunnable);
 	}
 
 	// Start the capture
@@ -306,9 +315,7 @@ public class DroidActivity extends Activity implements OnClickListener {
 	public void recordVideo(Boolean result) {
 		if(result) {
 			startRecording();
-			Log.e("dhara", "server recording! " + result);
 		}else {
-			Log.e("dhara", "local recording! " + result);
 			serverRecordFailed = true;
 			startRecordingLocal();
 		}
@@ -474,7 +481,6 @@ public class DroidActivity extends Activity implements OnClickListener {
 				}
 			
 			}catch(Exception e) {
-				Log.e("dhara","stopped");
 			}
 		}
 	}
@@ -680,7 +686,6 @@ public class DroidActivity extends Activity implements OnClickListener {
 		if(response == null) {
 			CommonUtility.writeToXmlFile(setVideoRequest.getActivityId(),
 					videoPath, setVideoRequest.getVideoSize(), setVideoRequest.getVideoDuration());
-			Log.e("dhara","vid not set");
 		}
 		
 		if(file != null && file.exists()) {

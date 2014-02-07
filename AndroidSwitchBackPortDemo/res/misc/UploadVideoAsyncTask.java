@@ -28,6 +28,8 @@ import com.azilen.insuranceapp.entities.VideosToUpload;
 import com.azilen.insuranceapp.service.UploadVideoService;
 import com.azilen.insuranceapp.utils.CommonUtility;
 import com.azilen.insuranceapp.utils.Global;
+import com.azilen.insuranceapp.utils.Logger;
+import com.azilen.insuranceapp.utils.Logger.modules;
 import com.readystatesoftware.simpl3r.UploadIterruptedException;
 import com.readystatesoftware.simpl3r.Uploader;
 
@@ -48,6 +50,7 @@ public class UploadVideoAsyncTask extends AsyncTask<Void, Boolean, Boolean> {
 
 	private AmazonS3Client s3Client;
 	private Uploader uploader;
+	private String TAG = this.getClass().getSimpleName();
 
 	public UploadVideoAsyncTask(Context _context, VideosToUpload videosToUpload,
 			String from) {
@@ -78,13 +81,18 @@ public class UploadVideoAsyncTask extends AsyncTask<Void, Boolean, Boolean> {
 			String s3Location = uploader.start(); // initiate the upload
 			Log.e("Upload Service ---> ", "File successfully uploaded to "
 					+ s3Location);
+			
+			Logger.i(modules.INSURANCE_APP, TAG, "video successfully uploaded to " + s3Location);
+			
 			isVideoUploaded = true;
 		} catch (UploadIterruptedException uie) {
 			Log.e("Upload Service ---> ", "User interrupted");
+			Logger.e(modules.INSURANCE_APP, TAG, CommonUtility.getExceptionMSG(uie));
 			isVideoUploaded = false;
 		} catch (Exception e) {
 			e.printStackTrace();
 			Log.e("Upload Service ---> ", "Error: " + e.getMessage());
+			Logger.e(modules.INSURANCE_APP, TAG, CommonUtility.getExceptionMSG(e));
 			isVideoUploaded = false;
 		}
 		return isVideoUploaded;
@@ -106,9 +114,7 @@ public class UploadVideoAsyncTask extends AsyncTask<Void, Boolean, Boolean> {
 				CommonUtility.writeToXmlFile(mVideosToUpload.getActivityId(),
 						mVideoPath, mVideosToUpload.getVideoSize(),
 						mVideosToUpload.getVideoDuration());
-
-				// try for the next video
-				((UploadVideoService) context).uploadVid();
+				UploadVideoService.isServiceRunning = false;
 			}
 		}
 	}

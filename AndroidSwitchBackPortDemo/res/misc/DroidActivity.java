@@ -64,7 +64,6 @@ public class DroidActivity extends Activity implements OnClickListener {
 	private int imageWidth = 640;
 	private int imageHeight = 480;
 	private int frameRate = 24;
-	private static int counter=0;
 	
 	private int width;
 	private int height;
@@ -151,7 +150,7 @@ public class DroidActivity extends Activity implements OnClickListener {
 
 		myButton = new Button(this);
 		myButton.setOnClickListener(this);
-		myButton.setBackgroundDrawable(getResources().getDrawable(R.drawable.button_record_stop));
+		myButton.setBackgroundResource(R.drawable.button_record_stop);
 
 		meter = new Chronometer(this);
 		LinearLayout.LayoutParams chronometerLayoutParams = (LinearLayout.LayoutParams) new LayoutParams(
@@ -334,6 +333,7 @@ public class DroidActivity extends Activity implements OnClickListener {
 			}else {
 				// write in the xml file
 				writeToXmlVidNotSet();
+				removeVideoFromPlannedEvents();
 				super.onBackPressed();
 				overridePendingTransition(R.anim.activity_finish_in_anim, R.anim.activity_finish_out_anim);
 			}
@@ -368,17 +368,15 @@ public class DroidActivity extends Activity implements OnClickListener {
 			if (!recording) {
 				serverRecordFailed = true;
 				startRecordingLocal();
-				Log.w(LOG_TAG, "Start Button Pushed");
 			} else {
 				stopRecordingLocal();
-				Log.w(LOG_TAG, "Stop Button Pushed");
 				writeToXmlVidNotSet();
+				removeVideoFromPlannedEvents();
 				onBackPressed();
 			}
 		} else {
 			if (!recording) {
 				new CheckIfServerIsRunningAsyncTask(DroidActivity.this).execute();
-				Log.w(LOG_TAG, "Start Button Pushed");
 			} else {
 				stopRecording();
 				
@@ -388,10 +386,9 @@ public class DroidActivity extends Activity implements OnClickListener {
 					setVideo();
 				}else {
 					writeToXmlVidNotSet();
+					removeVideoFromPlannedEvents();
 					onBackPressed();
 				}
-				
-				Log.w(LOG_TAG, "Stop Button Pushed");
 			}
 		}
 	}
@@ -688,13 +685,17 @@ public class DroidActivity extends Activity implements OnClickListener {
 					videoPath, setVideoRequest.getVideoSize(), setVideoRequest.getVideoDuration());
 		}
 		
+		removeVideoFromPlannedEvents();
+		
+		// now finish this activity
+		onBackPressed();
+	}
+	
+	private void removeVideoFromPlannedEvents() {
 		if(file != null && file.exists()) {
 			// remove this event from planned events
 			PlannedEventsManager.getInstance().removeVideoFromPlannedEvents(mActivityId);
 		}
-		
-		// now finish this activity
-		onBackPressed();
 	}
 	
 	private String getFileSize() {

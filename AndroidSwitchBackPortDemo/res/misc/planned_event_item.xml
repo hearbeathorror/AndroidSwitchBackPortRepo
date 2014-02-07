@@ -231,17 +231,6 @@
                 android:layout_below="@+id/lnrSep"
                 android:gravity="center" >
 
-                <!--
-                 <ImageButton
-                android:id="@+id/imgPlay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="@dimen/margin"
-                android:background="@drawable/play_button_selector"
-                android:clickable="true"
-                android:contentDescription="@string/app_name" />
-                -->
-
                 <Button
                     android:id="@+id/btnReady"
                     style="@style/txtStyleWhite"
@@ -260,6 +249,17 @@
                     android:background="@drawable/record_button_selector"
                     android:clickable="true"
                     android:contentDescription="@string/app_name" />
+                
+                <ImageButton
+                	android:id="@+id/imgBtnPlay"
+                	android:layout_width="wrap_content"
+                	android:layout_height="wrap_content"
+                	android:layout_marginLeft="@dimen/margin"
+                	android:background="@drawable/play_button_selector"
+                	android:clickable="true"
+                	android:layout_centerVertical="true"
+                	android:layout_toRightOf="@+id/imgRecord"
+                	android:contentDescription="@string/app_name" />
             </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>

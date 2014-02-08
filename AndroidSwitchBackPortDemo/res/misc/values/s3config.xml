@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    
-	<!-- never store your S3 credentials like this in a real app! -->
-    <string name="s3_access_key">AKIAJ5ZVVUI4EBWUW3JQ</string>
-    <string name="s3_secret">afFkoEE7DrMQQh6xj4UWmo+wvW17vWYwqt2hzwyt</string>
-    <string name="s3_bucket">mobile-client-storage</string>
-    
-</resources>

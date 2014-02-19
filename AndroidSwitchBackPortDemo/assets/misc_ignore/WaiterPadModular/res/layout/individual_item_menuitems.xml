@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:orientation="horizontal"
+    android:paddingTop="5dp"
+    android:paddingBottom = "5dp"
+    android:id="@+id/lnrItems"
+    android:layout_height="match_parent"
+    android:background="@drawable/list_item_selector">
+    <TextView
+        android:id="@+id/txtMenuItemName"
+        android:layout_width="0dip"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        style="@style/txtIndividualStyle"
+        android:focusable="false"
+        android:textIsSelectable="false"
+        android:textSize="16sp"
+        android:text="@string/item_name"/>
+    <TextView
+        android:id="@+id/txtMenuItemPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/txtIndividualStyle"
+        android:textIsSelectable="false"
+        android:focusable="false"
+        android:textSize="16sp"
+        android:layout_marginLeft="5dp"
+        android:gravity="right"
+        android:text="@string/total_order"/>
+    <!-- <ImageButton 
+        android:id="@+id/btnAddItemMenuList"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/plus"
+        android:contentDescription="@string/image"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/> -->
+</LinearLayout>

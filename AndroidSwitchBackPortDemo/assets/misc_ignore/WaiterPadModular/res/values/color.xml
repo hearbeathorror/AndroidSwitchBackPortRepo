@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="silver">#CCCCCC</color>    
+	<color name="white">#FFFFFF</color>
+	<color name="silver">#C0C0C0</color>
+	<color name="menu_bg">#343434</color>
+	<color name="divider">#242424</color>
+	<color name="black">#000000</color>
+	<color name="blue">#0077CC</color>
+	<color name="bg_color">#CBCCCD</color>
+	<color name="bg__press_color">#969696</color>
+	<color name="progress_end">#CE1E25</color>
+	<color name="progress_start">#B31025</color>
+	<color name="bg_color_desc">#E6E6E6</color>
+	<color name="header">#AD2626</color>
+	<color name="item_selected_color">#CFD0D3</color>
+	<color name="background_colro_leftmenu">#142318</color>
+	<color name="light_bg">#343434</color>
+	<color name="lockandlogoutcolor">#808080</color>
+	<color name="list_select_color">#ffcbc9</color>
+	<color name="order_footer_textcolor">#690404</color>
+	<color name="category_color">#efefef</color>
+	
+	<color name="button_start_color">#E07373</color>
+	<color name="button_end_color">#CE3433</color>
+	<!-- <color name="header_start_color">#C12F2F</color>
+	<color name="header_end_color">#952F2F</color> -->
+	
+	<color name="header_start_color">#932424</color>
+	<color name="header_end_color">#932424</color>
+	
+	<color name="header_pressed_start_color">#a11005</color>
+	<color name="header_pressed_end_color">#d62608</color>
+	
+	<color name="bg_extra">#CEC9C7</color>
+	<color name="yellow">#FEFFDA</color>
+	
+	<color name="checkout_color">#7a7a7a</color>
+	<color name="new_item_color">#feffda</color>
+	<color name="sent_item_color">#dfffd7</color>
+</resources>

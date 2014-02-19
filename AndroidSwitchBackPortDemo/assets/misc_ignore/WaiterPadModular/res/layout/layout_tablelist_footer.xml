@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_color">
+    <!--
+    Removed as per the requirement
+    Changes as on 5th July 2013
+    <Button 
+        android:id="@+id/btnPlaceOrderOnDummyTable"
+        android:layout_width="wrap_content"
+        android:layout_height="65dp"
+        style="@android:style/TextAppearance.Medium"
+        android:drawableLeft="@drawable/place_order_icon"
+        android:background="@drawable/button_selector"
+        android:onClick="buttonClicked"
+        android:drawablePadding="10dp"
+        android:text="@string/place_order"/> -->
+    
+    <!-- android:background="@drawable/button_shape_bottom" -->
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="65dp"
+	    android:id="@+id/txtPendingTables"
+	    android:text="@string/pending"
+	    style="@android:style/TextAppearance.Medium"
+	    android:layout_alignParentRight="true"
+	    android:layout_marginRight="@dimen/space"
+	    android:gravity="center"/>
+</RelativeLayout>

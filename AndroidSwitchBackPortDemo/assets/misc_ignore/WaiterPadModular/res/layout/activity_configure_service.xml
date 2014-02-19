@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:id="@+id/relativeHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <include
+            android:layout_alignParentTop="true"
+            layout="@layout/layout_header" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relLayersService"
+        android:layout_below="@+id/relativeHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/lblSettingsLabel"
+            style="@style/txtIndividualStyle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:layout_marginLeft="10dp"
+            android:padding="@dimen/space"
+            android:textSize="18sp"
+            android:text="@string/settings_label" />
+
+        <RelativeLayout
+            android:id="@+id/relLayerOne"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lblSettingsLabel" >
+
+            <TextView
+                android:id="@+id/lblIP"
+                style="@style/txtIndividualStyle"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="@dimen/space"
+                android:textSize="18sp"
+                android:text="@string/ip_address" />
+
+            <EditText
+                android:id="@+id/editIpAddress"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="0dp"
+                android:layout_toRightOf="@+id/lblIP"
+                android:background="@drawable/edit_shape"
+                android:hint="@string/ip_address_hint"
+                android:inputType="text" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relLayerTwo"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/relLayerOne" >
+
+            <TextView
+                android:id="@+id/lblPort"
+                style="@style/txtIndividualStyle"
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:padding="@dimen/space"
+                android:textSize="18sp"
+                android:text="@string/port" />
+
+            <EditText
+                android:id="@+id/editPortNumber"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_toRightOf="@+id/lblPort"
+                android:background="@drawable/edit_shape"
+                android:maxLength="5"
+                android:inputType="number" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeButtons"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relLayerTwo"
+            android:layout_margin="@dimen/space" >
+
+            <LinearLayout
+                android:id="@+id/lnrButtonsService"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/btnCancelService"
+                    style="@style/txtIndividualStyle"
+                    android:layout_width="0dip"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/button_shape_selector"
+                    android:onClick="buttonClicked"
+                    android:text="@string/cancel"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/btnSaveService"
+                    style="@style/txtIndividualStyle"
+                    android:layout_width="0dip"
+                    android:layout_height="@dimen/button_height"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="0.5"
+                    android:background="@drawable/button_shape_selector"
+                    android:onClick="buttonClicked"
+                    android:text="@string/save"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

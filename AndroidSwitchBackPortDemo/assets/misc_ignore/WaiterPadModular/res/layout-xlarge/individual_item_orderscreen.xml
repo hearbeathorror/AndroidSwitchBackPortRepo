@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/relOrderItems"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:background="@drawable/child_item_selector"
+    android:layout_height="match_parent">
+<!--     <ImageButton -->
+<!--         android:id="@+id/btnDeleteItemOrderScreen" -->
+<!--         android:layout_width="55dp" -->
+<!--         android:layout_height="55dp" -->
+<!--         android:layout_marginLeft="10dp" -->
+<!--         android:focusable="false" -->
+<!--         android:background="@drawable/remove_order" -->
+<!--         android:contentDescription="@string/image" /> -->
+
+ 	<TextView 
+            android:id="@+id/txtItemQuantityOrderScreen"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:layout_marginLeft="10dp"
+            android:selectAllOnFocus="false"
+        	android:textIsSelectable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:layout_alignParentLeft="true"
+            android:text="@string/counter"
+            android:gravity="left"
+            style="@style/txtIndividualStyle"
+            android:textSize="20sp"/>
+
+    <TextView 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/txtIndividualStyle"
+        android:layout_toRightOf="@+id/txtItemQuantityOrderScreen"
+        android:id="@+id/txtItemNameOrderScreen"
+        android:layout_marginLeft="@dimen/space"
+        android:clickable="false"
+        android:selectAllOnFocus="false"
+        android:textIsSelectable="false"
+        android:focusableInTouchMode="false"
+        android:focusable="false"
+        android:layout_toLeftOf="@+id/txtItemPrice"
+        android:text="@string/item_name"
+        android:textSize="20sp"/>
+    
+    <TextView
+        android:id="@+id/txtModifiersItemOrderScreen"
+        style="@style/txtIndividualStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space"
+        android:layout_toLeftOf="@+id/txtItemPrice"
+        android:layout_toRightOf="@+id/txtItemQuantityOrderScreen"
+        android:layout_below="@+id/txtItemNameOrderScreen"
+        android:focusable="false"
+        android:selectAllOnFocus="false"
+        android:text="@string/item_name"
+        android:visibility="invisible"
+        android:textIsSelectable="false"
+        android:textSize="14sp" />
+    
+    <TextView
+            android:id="@+id/txtItemPrice"
+            android:layout_width="150dp"
+            style="@style/txtIndividualStyle"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:text="@string/total_order"
+            android:textSize="20sp"/>
+    
+<!--     <RelativeLayout  -->
+<!--         android:layout_alignParentRight="true" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:id="@+id/relRightElements" -->
+<!--         android:layout_height="wrap_content"> -->
+        
+<!--         <ImageButton -->
+<!--             android:layout_width="55dp" -->
+<!--             android:layout_height="55dp" -->
+<!--             android:layout_marginLeft="30dp" -->
+<!--             android:focusableInTouchMode="false" -->
+<!--             style="@style/txtIndividualStyle" -->
+<!--             android:background="@drawable/minus" -->
+<!--             android:id="@+id/btnRemoveItem" -->
+<!--             android:contentDescription="@string/minus" -->
+<!--             android:focusable="false" /> -->
+<!--         <TextView  -->
+<!--             android:id="@+id/txtItemQuantityOrderScreen" -->
+<!--             android:layout_width="65dp" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_marginTop="15dp" -->
+<!--             android:clickable="false" -->
+<!--             android:layout_marginLeft="30dp" -->
+<!--             android:selectAllOnFocus="false" -->
+<!--         	android:textIsSelectable="false" -->
+<!--             android:focusable="false" -->
+<!--             android:focusableInTouchMode="false" -->
+<!--             android:layout_toRightOf="@+id/btnRemoveItem" -->
+<!--             android:text="@string/counter" -->
+<!--             android:gravity="center" -->
+<!--             style="@style/txtIndividualStyle" -->
+<!--             android:textSize="18sp"/> -->
+<!--         <ImageButton -->
+<!--             android:layout_width="65dp" -->
+<!--             android:layout_height="55dp" -->
+<!--             android:layout_marginLeft="30dp" -->
+<!--             android:id="@+id/btnAddItem" -->
+<!--             android:focusable="false" -->
+<!--             android:contentDescription="@string/image" -->
+<!--             style="@style/txtIndividualStyle" -->
+<!--             android:layout_toRightOf="@+id/txtItemQuantityOrderScreen" -->
+<!--             android:background="@drawable/plus" -->
+<!--             android:text="@string/plus" -->
+<!--             android:layout_marginRight="7dp"/> -->
+<!--     </RelativeLayout> -->
+</RelativeLayout>
+
+
+

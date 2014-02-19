@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!--  <item
+        android:id="@+id/extra_menu"
+        android:icon="@drawable/abs__ic_menu_moreoverflow_holo_dark"
+        android:title=""
+        android:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/ItemMenu"
+                android:icon="@drawable/menu_icon"
+                android:showAsAction="always"
+                android:title="@string/menu"/>
+            <item
+                android:id="@+id/MyCurrentOrders"
+                android:icon="@drawable/myorders"
+                android:showAsAction="always"
+                android:title="@string/myorders"/>
+            <item
+                android:id="@+id/Settings"
+                android:icon="@drawable/settings"
+                android:showAsAction="always"
+                android:title="@string/settings"/>
+        </menu>
+    </item> -->
+</menu>

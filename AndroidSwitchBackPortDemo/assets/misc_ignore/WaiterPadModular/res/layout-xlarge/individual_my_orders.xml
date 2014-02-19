@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/relLayerMenuScreenIndi"
+        android:layout_width="fill_parent"
+        android:paddingLeft="@dimen/space"
+        android:paddingRight="@dimen/space"
+        android:paddingTop="@dimen/space"
+        android:paddingBottom="@dimen/space"
+        android:layout_height="wrap_content" >
+        
+         <TextView
+             android:id="@+id/txtTableNumberMyOrder"
+             style="@style/txtIndividualStyle"
+             android:layout_width="@dimen/table_header_width"
+             android:layout_height="wrap_content"
+             android:layout_alignParentLeft="true"
+             android:gravity="left"
+             android:text="@string/table_number"
+             android:textSize="20sp"
+             android:width="@dimen/table_header_width" />
+
+         <TextView
+             android:id="@+id/txtSectionName"
+             style="@style/txtIndividualStyle"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_toRightOf="@+id/txtTableNumberMyOrder"
+             android:layout_toLeftOf="@+id/txtOrderNumberMyOrder"
+             android:layout_marginRight="@dimen/space"
+             android:text="@string/room_name" />
+        
+         <TextView
+             android:id="@+id/txtOrderNumberMyOrder"
+             style="@style/txtIndividualStyle"
+             android:layout_width="@dimen/order_header_width"
+             android:layout_height="wrap_content"
+             android:layout_gravity="left"
+             android:layout_marginLeft="5dp"
+             android:layout_marginRight="@dimen/space"
+             android:layout_toLeftOf="@+id/txtTotalMyOrderScreen"
+             android:gravity="left"
+             android:text="@string/order_number"
+             android:textSize="20sp"
+             android:width="@dimen/order_header_width" />
+
+         <TextView
+             android:id="@+id/txtTotalMyOrderScreen"
+             style="@style/txtIndividualStyle"
+             android:layout_width="@dimen/total_header_width"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_gravity="left"
+             android:gravity="left"
+             android:text="@string/total_order"
+             android:width="@dimen/total_header_width" />
+
+    </RelativeLayout>
+</RelativeLayout>

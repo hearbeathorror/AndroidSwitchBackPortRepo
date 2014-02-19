@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/relLayerMenuScreenIndi"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+                android:id="@+id/txtTableNumberMyOrder"
+                style="@style/txtIndividualStyle"
+                android:layout_width="@dimen/table_header_width"
+                android:layout_height="wrap_content"
+                android:text="@string/table_number"
+                android:layout_alignParentLeft="true"
+                android:gravity="left"
+                android:textSize="18sp" />
+        
+       <TextView
+                android:id="@+id/txtSectionName"
+                style="@style/txtIndividualStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_toLeftOf="@+id/txtOrderNumberMyOrder"
+                android:layout_toRightOf="@+id/txtTableNumberMyOrder"
+                android:text="@string/room_name"
+                android:textSize="18sp" />
+
+            
+            
+             <TextView
+                android:id="@+id/txtOrderNumberMyOrder"
+                style="@style/txtIndividualStyle"
+                android:layout_width="@dimen/order_header_width"
+                android:layout_height="wrap_content"
+                android:text="@string/order_number"
+                android:gravity="left"
+                android:layout_marginLeft="12dp"
+                android:layout_toLeftOf="@+id/txtTotalMyOrderScreen"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtTotalMyOrderScreen"
+                style="@style/txtIndividualStyle"
+                android:layout_width="@dimen/total_header_width"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_alignParentRight="true"
+                android:text="@string/total_order"
+                android:textSize="18sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

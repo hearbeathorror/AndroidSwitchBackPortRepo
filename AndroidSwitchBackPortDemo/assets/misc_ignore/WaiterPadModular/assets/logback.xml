@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <!-- Create a file appender for a log in the application's data directory -->
+  <appender name="file" class="ch.qos.logback.core.FileAppender">
+    <file>/sdcard/waiterpad/files/log/waiterpad.log</file>
+    <appender>true</appender>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} %-5level %class \(%thread\) [%logger{36}] -- %msg%n</pattern>
+    </encoder>  
+  </appender>
+  
+  <!-- Write INFO (and higher-level) messages to the log file -->
+  <root level="DEBUG">
+    <appender-ref ref="file" />
+  </root>
+</configuration>
+
+<!-- <file>/sdcard/path_here/filename.log</file> -->

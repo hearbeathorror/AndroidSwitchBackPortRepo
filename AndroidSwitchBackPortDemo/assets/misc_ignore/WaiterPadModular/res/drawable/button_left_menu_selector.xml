@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+Bottom 2dp Shadow
+<item>
+    <shape  android:shape="rectangle">
+        <solid android:color="#232323" />
+        <corners android:radius="7dp" />
+    </shape>
+</item>
+
+White Top color
+<item android:bottom="5px">
+
+    <shape  android:shape="rectangle">
+    <solid android:color="#CCCCCC" />
+    <corners android:radius="5dp" />
+    </shape>
+
+</item>
+<item >
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+    pressed
+    <item android:state_pressed="true" android:drawable="@drawable/button_pressed_shape_bottom" />
+    focused
+    <item android:state_focused="true" android:background="@drawable/button_pressed_shape_bottom" />
+
+</selector>
+</item>
+</layer-list> -->
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- pressed -->
+    <item android:state_pressed="true" android:drawable="@drawable/side_button_selector" />
+    <item android:state_activated="true" android:drawable="@drawable/side_button_selector"/>
+    <!-- focused -->
+    <!-- <item android:state_focused="true" android:background="@drawable/button_pressed_shape_bottom" /> -->
+    <!-- default -->
+    <item android:drawable="@drawable/side_buttons" />
+</selector>

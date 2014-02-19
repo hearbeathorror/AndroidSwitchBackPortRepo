@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1" >
+
+    <!--
+    <RelativeLayout
+        android:id="@+id/relLeftMenu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible" >
+
+        <include layout="@layout/layout_left_menu" />
+    </RelativeLayout>
+    -->
+
+    <RelativeLayout
+        android:id="@+id/myordersrel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" >
+
+        <RelativeLayout
+            android:id="@+id/relHeader"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <include
+                android:layout_alignParentTop="true"
+                layout="@layout/layout_header" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relHeaders"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_below="@+id/relHeader"
+            android:gravity="center_vertical"
+            android:background="#dedede">
+
+            <TextView
+                android:id="@+id/txtTableHeader"
+                style="@style/txtIndividualStyle"
+                android:layout_width="@dimen/table_header_width"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="left"
+                android:layout_marginLeft="5dp"
+                android:gravity="left"
+                android:text="@string/table_header"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txtSectionHeader"
+                style="@style/txtIndividualStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/txtOrderHeader"
+                android:layout_toRightOf="@+id/txtTableHeader"
+                android:gravity="left"
+                android:text="@string/section_header"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txtOrderHeader"
+                style="@style/txtIndividualStyle"
+                android:layout_width="@dimen/order_header_width"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/txtTotalHeader"
+                android:gravity="left"
+                android:text="@string/order_header"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txtTotalHeader"
+                style="@style/txtIndividualStyle"
+                android:layout_width="@dimen/total_header_width"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:gravity="left"
+                android:text="@string/total_header"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relHeaders"
+            android:cacheColorHint="@android:color/transparent"
+            android:divider="@color/silver"
+            android:dividerHeight="2dp"
+            android:listSelector="@drawable/list_item_selector" >
+        </ListView>
+    </RelativeLayout>
+
+</FrameLayout>

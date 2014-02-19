@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/relHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <include
+            android:layout_alignParentTop="true"
+            layout="@layout/layout_header" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relAddItemLayer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relHeader" >
+
+        <RelativeLayout
+            android:id="@+id/relSearchAndOrder"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_color"
+            android:paddingBottom="10dp" >
+
+            <Button
+                android:id="@+id/btnGoToOrder"
+                style="@style/txtIndividualStyle"
+                android:layout_width="55dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/back_to_order"
+                android:textSize="18sp" />
+           
+            <!-- <Button -->
+            <!-- android:id="@+id/btnBack" -->
+            <!-- android:layout_width="50dp" -->
+            <!-- android:layout_height="50dp" -->
+            <!-- android:layout_marginLeft="13dp" -->
+            <!-- android:layout_marginTop="10dp" -->
+            <!-- android:background="@drawable/back_btn" /> -->
+
+            <Spinner
+                android:id="@+id/spinnerGuests"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/btnGoToOrder"
+                android:background="@drawable/guest_icon"
+                android:spinnerMode="dropdown" />
+
+            <LinearLayout
+                android:id="@+id/searchbox"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/relRightEnd"
+                android:layout_toRightOf="@+id/spinnerGuests"
+                android:orientation="horizontal" >
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoSearchItem"
+                    style="@style/txtIndividualStyle"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_shape_spinner"
+                    android:hint="@string/search_item"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/relRightEnd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true" >
+
+                <RelativeLayout
+                    android:id="@+id/relSpinners"
+                    android:layout_width="65dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right" >
+
+                    <Spinner
+                        android:id="@+id/spinnerCategoryList"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/menu_icon"
+                        android:spinnerMode="dropdown" />
+
+                    <Spinner
+                        android:id="@+id/spinnerSubCategoryList"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="14dp"
+                        android:background="@drawable/menu_icon"
+                        android:spinnerMode="dropdown"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/btnBack"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginRight="13dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/relSpinners"
+                    android:background="@drawable/refresh_red" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/txtGuestNameAddItem"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relSearchAndOrder"
+            android:background="@drawable/bar"
+            android:gravity="center"
+            android:text="@string/guest"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtGuestNameAddItem"
+            android:cacheColorHint="@android:color/transparent"
+            android:divider="@color/silver"
+            android:listSelector="@drawable/list_item_selector"
+            android:dividerHeight="2dp" >
+        </ListView>
+    </RelativeLayout>
+
+</RelativeLayout>

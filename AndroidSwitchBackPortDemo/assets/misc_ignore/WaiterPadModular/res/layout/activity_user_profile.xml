@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relHeaderUserProfile">
+        <include 
+            layout="@layout/layout_header"
+            android:layout_alignParentTop="true"/>
+    </RelativeLayout>
+    <RelativeLayout 
+        android:id="@+id/relUserProfile"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/space"
+        android:layout_below="@+id/relHeaderUserProfile">
+        <ImageView 
+            android:id="@+id/imageUser"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:background="@drawable/ic_launcher"
+            android:contentDescription="@string/image"/>
+        <RelativeLayout 
+            android:id="@+id/relDetailUser"
+            android:layout_width="fill_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/imageUser">
+            <TextView
+                android:id="@+id/txtUserName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/waiter_name"
+                style="@style/txtIndividualStyle"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

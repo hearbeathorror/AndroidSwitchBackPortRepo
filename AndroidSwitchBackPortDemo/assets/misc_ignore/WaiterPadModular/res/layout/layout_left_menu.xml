@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroller"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/menu_bg"
+    android:fillViewport="true" >
+
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:background="@drawable/drop_shadow_for_menu"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/relFirstLayer"
+            android:layout_width="match_parent"
+            android:background="@color/menu_bg"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtWaiterName"
+                style="@style/txtIndividualStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="55dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/button_left_menu_selector"
+                android:clickable="false"
+                android:gravity="center|center_vertical"
+                android:text="@string/waiter_name"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:id="@+id/sepLeftMenu11"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/txtWaiterName"
+                android:background="@color/divider"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sepLeftMenu1"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/sepLeftMenu11"
+                android:background="@drawable/divider"
+                android:orientation="horizontal" >
+            </LinearLayout>
+            
+
+            <RelativeLayout
+                android:id="@+id/relLeftButtons"
+                android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:layout_below="@+id/sepLeftMenu1">
+
+                <Button
+                    android:id="@+id/btnLeftMenuLock"
+                    style="@style/txtIndividualStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:background="@drawable/button_menu_lockandlogout_selector"
+                    android:drawablePadding="5dp"
+                    android:drawableTop="@drawable/lock"
+                    android:text="@string/lock"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="16sp"
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:id="@+id/sepLeftMenu66"
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="#6d6d6d"
+                    android:layout_toRightOf="@+id/btnLeftMenuLock"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnLeftMenuWaiterChange"
+                    style="@style/txtIndividualStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:background="@drawable/button_menu_lockandlogout_selector"
+                    android:drawablePadding="5dp"
+                    android:layout_toRightOf="@+id/sepLeftMenu66"
+                    android:drawableTop="@drawable/waiter"
+                    android:text="@string/change_waiter"
+                    android:layout_alignParentRight="true"
+                    android:textSize="16sp"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+            
+            <LinearLayout
+                android:id="@+id/sepLeftMenu77"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/relLeftButtons"
+                android:background="@color/divider"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sepLeftMenu7"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/sepLeftMenu77"
+                android:background="@drawable/divider"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtOrdersLeftMenu"
+                style="@style/txtIndividualStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sepLeftMenu7"
+                android:clickable="true"
+                android:background="@drawable/button_left_menu_selector"
+                android:drawableLeft="@drawable/orders_grey"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:padding="25dp"
+                android:text="@string/orders"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:id="@+id/sepLeftMenu22"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/txtOrdersLeftMenu"
+                android:background="@color/divider"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sepLeftMenu2"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/sepLeftMenu22"
+                android:background="@drawable/divider"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtTablesLeftMenu"
+                style="@style/txtIndividualStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sepLeftMenu2"
+                android:background="@drawable/button_left_menu_selector"
+                android:clickable="true"
+                android:drawableLeft="@drawable/tabl"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:padding="25dp"
+                android:text="@string/tables"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:id="@+id/sepLeftMenu33"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/txtTablesLeftMenu"
+                android:background="@color/divider"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sepLeftMenu3"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/sepLeftMenu33"
+                android:background="@drawable/divider"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtNotificationsLeftMenu"
+                style="@style/txtIndividualStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sepLeftMenu3"
+                android:background="@drawable/button_left_menu_selector"
+                android:clickable="true"
+                android:drawableLeft="@drawable/notifications"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:padding="25dp"
+                android:text="@string/notifications"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:id="@+id/sepLeftMenu44"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/txtNotificationsLeftMenu"
+                android:background="@color/divider"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sepLeftMenu4"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/sepLeftMenu44"
+                android:background="@drawable/divider"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtSettingsLeftMenu"
+                style="@style/txtIndividualStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sepLeftMenu4"
+                android:layout_marginBottom="3dp"
+                android:background="@drawable/button_left_menu_selector"
+                android:clickable="true"
+                android:drawableLeft="@drawable/setting_grey"
+                android:drawablePadding="10dp"
+                android:gravity="center_vertical"
+                android:padding="25dp"
+                android:text="@string/settings"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:id="@+id/sepLeftMenu55"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/txtSettingsLeftMenu"
+                android:background="@color/divider"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/sepLeftMenu5"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/sepLeftMenu55"
+                android:background="@drawable/divider"
+                android:orientation="horizontal" >
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnPlaceOrderLeftMenu"
+                style="@style/txtIndividualStyle"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sepLeftMenu5"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_shape_selector"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="25dp"
+                android:paddingLeft="@dimen/space"
+                android:text="@string/place_order"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relBottom"
+            android:layout_width="fill_parent"
+            android:layout_height="250dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="bottom"
+            android:layout_below="@+id/relFirstLayer"
+            android:background="@color/menu_bg">
+
+            <ImageView
+                android:id="@+id/imgLeftMenuIcon"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
+                android:contentDescription="@string/image"
+                android:scaleType="fitXY"
+                android:src="@drawable/icon" />
+
+            <TextView
+                android:id="@+id/txtLeftMenuAppName"
+                style="@style/txtIndividualStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgLeftMenuIcon"
+                android:gravity="center_horizontal"
+                android:paddingTop="@dimen/space"
+                android:paddingLeft="@dimen/space"
+                android:paddingRight="@dimen/space"
+                android:text="@string/app_name"
+                android:textColor="@color/lockandlogoutcolor"
+                android:textSize="32sp" />
+            
+            <TextView 
+                android:id="@+id/txtLeftMenuLink"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/site"
+                style="@style/txtIndividualStyle"
+                android:textSize="24sp"
+                android:autoLink="web"
+                android:paddingBottom="@dimen/space"
+                android:gravity="center_horizontal"
+               android:textColorLink="@color/lockandlogoutcolor"
+                android:layout_below="@+id/txtLeftMenuAppName"/>
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

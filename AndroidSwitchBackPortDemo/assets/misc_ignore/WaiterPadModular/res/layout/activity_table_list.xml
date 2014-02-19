@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1" >
+
+    <!--
+    <RelativeLayout
+        android:id="@+id/relLeftMenu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible" >
+
+        <include layout="@layout/layout_left_menu" />
+    </RelativeLayout>
+    -->
+
+    <RelativeLayout
+        android:id="@+id/tablelistrel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" >
+
+        <RelativeLayout
+            android:id="@+id/relHeader"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <include
+                android:layout_alignParentTop="true"
+                layout="@layout/layout_header" />
+        </RelativeLayout>
+
+        <!-- Commented due to changes in design - changes as on 10th July 2013 -->
+        <!-- <RelativeLayout -->
+        <!-- android:gravity="top" -->
+        <!-- android:layout_width="fill_parent" -->
+        <!-- android:layout_height="wrap_content" -->
+        <!-- android:id="@+id/relTableButtons" -->
+        <!-- android:layout_below="@+id/relHeader"> -->
+        <!-- <include -->
+        <!-- layout="@layout/layout_table_listtop"/> -->
+        <!-- </RelativeLayout> -->
+
+        <RelativeLayout
+            android:id="@+id/relativeSectionSelection"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relHeader"
+            android:background="@drawable/bar"
+            android:clickable="false"
+            android:gravity="top" >
+
+            <Spinner
+                android:id="@+id/sectionSelectorSpinner"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="@dimen/space"
+                android:background="@drawable/selection_normal"
+                android:dropDownSelector="@drawable/list_item_selector"
+                android:spinnerMode="dropdown" />
+
+            <TextView
+                android:id="@+id/txtSectionNameTableList"
+                style="@style/txtIndividualStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/sectionSelectorSpinner"
+                android:gravity="left"
+                android:padding="@dimen/space"
+                android:text="@string/section_selection"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relativeSectionSelection" >
+
+            <GridView
+                android:id="@+id/gridViewTableList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="@dimen/space"
+                android:cacheColorHint="@android:color/transparent"
+                android:columnWidth="80dp"
+                android:horizontalSpacing="25dp"
+                android:listSelector="@drawable/list_item_selector"
+                android:minHeight="100dp"
+                android:numColumns="auto_fit"
+                android:stretchMode="spacingWidth"
+                android:verticalSpacing="25dp" >
+            </GridView>
+
+            <!--
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                
+
+                <include
+                    android:layout_gravity="bottom"
+                    layout="@layout/layout_tablelist_footer" />
+            </LinearLayout>
+            -->
+        </RelativeLayout>
+    </RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@android:style/Theme.Dialog"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white" >
+    
+    <TextView
+        android:id="@+id/txtItemDesc"
+        style="@android:style/TextAppearance.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="@dimen/space"
+        android:layout_marginTop="@dimen/space"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+    
+    <LinearLayout
+        android:id="@+id/lnrSep1"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/txtItemDesc"
+        android:layout_marginTop="5dp"
+        android:background="@color/header_end_color"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+	<ScrollView 
+	    android:id="@+id/scrollLayout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:fillViewport="true"
+	    android:layout_below="@+id/lnrSep1">
+	    
+	
+    <RelativeLayout
+        android:id="@+id/relDetailsLayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:id="@+id/lnrQuantity"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@android:id/list"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical" >
+
+            <!-- <RelativeLayout -->
+            <!-- android:layout_width="fill_parent" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:background="@color/bg_color_desc"> -->
+            <!-- <EditText -->
+            <!-- android:id="@+id/editQuantity" -->
+            <!-- android:layout_width="fill_parent" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:background="@drawable/edit_shape" -->
+            <!-- android:layout_margin="@dimen/space" -->
+            <!-- android:inputType="numberDecimal" -->
+            <!-- android:hint=""/> -->
+            <!-- </RelativeLayout> -->
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_color_desc" >
+
+                <RelativeLayout
+                    android:id="@+id/lblQuantityLabels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/txtQuantity"
+                        style="@style/txtIndividualStyle"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="18dp"
+                        android:gravity="left"
+                        android:paddingLeft="5dp"
+                        android:textSize="18sp"
+                        android:text="@string/quantity" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/lnrLyer"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/lblQuantityLabels"
+                    android:layout_marginRight="5dp"
+                    android:orientation="horizontal" >
+                    <Button 
+                        android:id="@+id/btnRemoveQuantityDesc"
+                        android:layout_width="55dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@color/header_end_color"
+                        android:textColor="@color/white"
+                        android:textSize="36sp"
+                        android:text="@string/minus"
+                        android:layout_height="50dp"/>
+                    <EditText 
+                        android:layout_width="0dip"
+                        android:layout_height="51dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/editQuantityDesc"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        style="@style/txtIndividualStyle"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="13dp"
+                        android:background="@drawable/edit_shape_itemdesc"
+                        android:hint=""/>
+                    <Button 
+                        android:id="@+id/btnAddQuantityDesc"
+                        android:layout_width="55dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/header_end_color"
+                        android:textColor="@color/white"
+                        android:textSize="36sp"
+                        android:text="@string/plus"
+                        android:layout_height="50dp"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnrSep3"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/lnrQuantity"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:background="@color/header_end_color" >
+        </LinearLayout>
+        
+        <LinearLayout 
+            android:id="@+id/askForFractions"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lnrSep3"
+            android:layout_marginRight="@dimen/space"
+            android:layout_marginLeft="@dimen/space"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+            <TextView 
+                android:id="@+id/txtAllowFractionalDishes"
+                android:layout_width="0dip"
+                android:layout_weight="1"
+                style="@style/txtIndividualStyle"
+                android:text="@string/allow_fractions"
+                android:textSize="18sp"
+                android:layout_marginTop="2dp"
+                android:layout_height="wrap_content"/>
+            <CheckBox 
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:id="@+id/checkboxFractionAllowed"/>
+        </LinearLayout>
+        
+
+        <LinearLayout
+            android:id="@+id/lnrFractionalDishes"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_below="@+id/askForFractions"
+            android:orientation="vertical" >
+
+            <!-- <RelativeLayout -->
+            <!-- android:layout_width="fill_parent" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:background="@color/bg_color_desc"> -->
+            <!-- <LinearLayout -->
+            <!-- android:id="@+id/lnrFractionalDish" -->
+            <!-- android:layout_width="fill_parent" -->
+            <!-- android:orientation="horizontal" -->
+            <!-- android:layout_height="wrap_content"> -->
+            <!-- <EditText -->
+            <!-- android:id="@+id/editFractionalDish" -->
+            <!-- android:layout_width="0dip" -->
+            <!-- android:layout_height="wrap_content" -->
+            <!-- android:layout_margin="@dimen/space" -->
+            <!-- android:background="@drawable/edit_shape" -->
+            <!-- android:layout_weight="1" -->
+            <!-- android:hint=""/> -->
+            <!-- <Button -->
+            <!-- android:layout_width="65dp" -->
+            <!-- android:layout_height="65dp" -->
+            <!-- android:id="@+id/btnFractionalDish" -->
+            <!-- android:layout_marginRight="@dimen/space" -->
+            <!-- android:layout_marginTop="@dimen/space" -->
+            <!-- android:drawableLeft="@drawable/scissors"/> -->
+            <!-- </LinearLayout> -->
+            <!-- </RelativeLayout> -->
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_color_desc" >
+
+                <RelativeLayout
+                    android:id="@+id/lblFractionalLabels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/txtSize"
+                        style="@style/txtIndividualStyle"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="18dp"
+                        android:gravity="left"
+                        android:paddingLeft="5dp"
+                        android:textSize="18sp"
+                        android:text="@string/fraction" />
+
+                    
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/lnrLyer2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toRightOf="@+id/lblFractionalLabels"
+                    android:orientation="horizontal" >
+                    <Button 
+                        android:id="@+id/btnRemoveFractionalDesc"
+                        android:layout_width="55dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/header_end_color"
+                        android:textColor="@color/white"
+                        android:textSize="36sp"
+                        android:text="@string/minus"
+                        android:layout_marginBottom="7dp"
+                        android:layout_height="50dp"/>
+                    <EditText 
+                        android:layout_width="0dip"
+                        android:layout_height="51dp"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="10dp"
+                        android:id="@+id/editFractionalDesc"
+                        android:inputType="number"
+                        style="@style/txtIndividualStyle"
+                        android:textSize="14sp"
+                        android:layout_marginBottom="6dp"
+                        android:singleLine="true"
+                        android:gravity="center"
+                        android:background="@drawable/edit_shape_itemdesc"
+                        android:hint=""/>
+                    <Button 
+                        android:id="@+id/btnAddFractionalDesc"
+                        android:layout_width="55dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/header_end_color"
+                        android:textColor="@color/white"
+                        android:textSize="36sp"
+                        android:text="@string/plus"
+                        android:layout_height="50dp"/>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnrSep2"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/lnrFractionalDishes"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:background="@color/header" >
+        </LinearLayout>
+        
+        
+        <RelativeLayout 
+            android:id="@+id/relKitchenNoteSection"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space"
+            android:layout_marginTop="@dimen/space"
+            android:layout_below="@+id/lnrSep2"
+            android:layout_marginRight="@dimen/space">
+            <EditText 
+                android:id="@+id/kitchenNote"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:hint="@string/enter_kitchen_note"
+                android:background="@drawable/edit_shape"
+                android:textColorHint="@color/black"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:minLines="15"/>
+        </RelativeLayout>
+        
+        
+    </RelativeLayout>
+</ScrollView>
+
+	 <include
+                android:layout_width="fill_parent"
+            	android:layout_height="wrap_content"
+            	android:layout_below="@+id/scrollLayout"
+            	android:layout_marginTop="@dimen/space"
+                layout="@layout/layout_desc_footer" />
+</RelativeLayout>

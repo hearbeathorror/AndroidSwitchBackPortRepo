@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="@color/bg_color"
+    android:layout_height="wrap_content">
+    <Button 
+        android:id="@+id/btnNewOrderFooter"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        style="@android:style/TextAppearance.Large"
+        android:textColor="@color/header_end_color"
+        android:text="@string/orderstatus_neworder"
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/add_item"
+        android:textStyle="normal"
+        android:onClick="buttonClicked"
+        android:background="@drawable/button_selector"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

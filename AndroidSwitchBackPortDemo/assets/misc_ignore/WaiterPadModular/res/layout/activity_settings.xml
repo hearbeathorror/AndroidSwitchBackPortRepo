@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1" xmlns:app="http://schemas.android.com/apk/res/com.azilen.waiterpad">
+
+<!--      <RelativeLayout -->
+<!--         android:id="@+id/relLeftMenu" -->
+<!--         android:layout_width="fill_parent" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:visibility="visible" > -->
+
+<!--         <include layout="@layout/layout_left_menu" /> -->
+<!--     </RelativeLayout> -->
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:clickable="true"
+        android:background="@color/white"
+        android:id="@+id/relactivitysettings"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relHeader"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <include layout="@layout/layout_header" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/relHeader"
+            android:fillViewport="true" >
+
+            <RelativeLayout
+                android:id="@+id/relativeLayouts"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp" >
+
+                <!-- <RelativeLayout
+                    android:id="@+id/relLayoutMenuSettings"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" >
+
+                    <LinearLayout
+                        android:id="@+id/lnrOrganizeMenu"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/space" >
+
+                        <TextView
+                            android:id="@+id/txtOrganizeMenu"
+                            style="@android:style/TextAppearance.Large"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/organize_menu" />
+
+                        <CheckBox
+                            android:id="@+id/checkOrganizeMenu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginRight="@dimen/space"
+                            android:text="" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/lnrOrganizeMenu"
+                        android:layout_marginTop="1dp"
+                        android:background="@android:color/black"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </RelativeLayout> -->
+
+                <RelativeLayout
+                    android:id="@+id/relLayoutSectionSelection"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/lnrSectionSelection"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/text_selector"
+                        android:clickable="true"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/txtSectionSelection"
+                            style="@android:style/TextAppearance.Large"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/text_selector"
+                            android:clickable="true"
+                            android:paddingTop="@dimen/space"
+                            android:paddingBottom="@dimen/space"
+                            android:paddingRight="@dimen/space"
+                            android:text="@string/section_selection" />
+
+                        <TextView
+                            style="@android:style/TextAppearance.Large"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/space"
+                            android:padding="@dimen/space"
+                            android:text="@string/arrow" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear3"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/lnrSectionSelection"
+                        android:background="@android:color/black"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <!-- <RelativeLayout
+                    android:id="@+id/rellayoutWaiterCode"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relLayoutSectionSelection"
+                    android:layout_marginTop="10dp" >
+
+                    <TextView
+                        android:id="@+id/txtChangeWaiterCode"
+                        style="@android:style/TextAppearance.Large"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/text_selector"
+                        android:clickable="true"
+                        android:padding="@dimen/space"
+                        android:text="@string/logout" />
+
+                    <LinearLayout
+                        android:id="@+id/linear11"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/txtChangeWaiterCode"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/black"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </RelativeLayout> -->
+
+                <!--
+            <RelativeLayout
+                android:id="@+id/relLayoutNotificationsEnabled"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rellayoutWaiterCode"
+                android:layout_marginTop="10dp" >
+
+                <LinearLayout
+                    android:id="@+id/lnrNotifications"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/space">
+
+                    <TextView
+                        android:id="@+id/txtNotificationsEnabled"
+                        style="@android:style/TextAppearance.Large"
+                        android:layout_width="0dip"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/notifications_enabled" />
+
+                    <CheckBox
+                        android:id="@+id/checkNotificationsEnabled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/space"
+                        android:text="" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/lnrNotifications"
+                    android:background="@android:color/black"
+                    android:orientation="horizontal" >
+                </LinearLayout>
+            </RelativeLayout>
+                -->
+
+                <RelativeLayout
+                    android:id="@+id/relLayoutLanguage"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relLayoutSectionSelection">
+
+                    <LinearLayout
+                        android:id="@+id/lnrLanguage"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/text_selector"
+                        android:clickable="true"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            android:id="@+id/txtLanguage"
+                            style="@android:style/TextAppearance.Large"
+                            android:layout_width="0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/text_selector"
+                            android:clickable="true"
+                            android:paddingTop="@dimen/space"
+                            android:paddingRight="@dimen/space"
+                            android:paddingBottom="@dimen/space"
+                            android:text="@string/language" />
+
+                        <TextView
+                            style="@android:style/TextAppearance.Large"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/space"
+                            android:padding="@dimen/space"
+                            android:text="@string/arrow" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear35"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/lnrLanguage"
+                        android:background="@android:color/black"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </RelativeLayout>
+                
+                <RelativeLayout
+                    android:id="@+id/relLayoutNotifications"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relLayoutLanguage"
+                    android:layout_marginTop="10dp" >
+
+                    <RelativeLayout
+                        android:id="@+id/relLayers"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="0dp">
+
+                        <TextView
+                            android:id="@+id/txtNotificationSettings"
+                            style="@android:style/TextAppearance.Large"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/space"
+                            android:layout_toLeftOf="@+id/relForSwitch"
+                            android:text="@string/notifications_enabled" />
+
+                        <RelativeLayout
+                            android:id="@+id/relForSwitch"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="35dp">
+                            
+                            <de.ankri.views.Switch
+                                app:textOn="@string/on"
+                                app:textOff="@string/off"
+                                android:id="@+id/switchForNotifications"
+                                android:layout_width="wrap_content"
+                                android:layout_height="45dp"
+                                android:enabled="true"/>
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear9"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/relLayers"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/black"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relLayoutBackEndSettings"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relLayoutNotifications"
+                    android:layout_marginTop="10dp" >
+
+                    <TextView
+                        android:id="@+id/txtConfigureSettings"
+                        style="@android:style/TextAppearance.Large"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/text_selector"
+                        android:clickable="true"
+                        android:padding="@dimen/space"
+                        android:text="@string/back_end_settings" />
+
+                    <LinearLayout
+                        android:id="@+id/linear4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/txtConfigureSettings"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/black"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relLayoutForceSync"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relLayoutBackEndSettings"
+                    android:layout_marginTop="10dp" >
+
+                    <TextView
+                        android:id="@+id/txtForceSync"
+                        style="@android:style/TextAppearance.Large"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/text_selector"
+                        android:clickable="true"
+                        android:padding="@dimen/space"
+                        android:text="@string/force_sync" />
+
+                    <LinearLayout
+                        android:id="@+id/linear5"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/txtForceSync"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/black"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relLayoutSyncMenu"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relLayoutForceSync"
+                    android:layout_marginTop="10dp" >
+
+                    <TextView
+                        android:id="@+id/txtSyncMenu"
+                        style="@android:style/TextAppearance.Large"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/text_selector"
+                        android:clickable="true"
+                        android:padding="@dimen/space"
+                        android:text="@string/sync_menu" />
+
+                    <LinearLayout
+                        android:id="@+id/linear6"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/txtSyncMenu"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/black"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relLayoutSendLog"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relLayoutSyncMenu"
+                    android:layout_marginTop="10dp" >
+
+                    <TextView
+                        android:id="@+id/txtSendLog"
+                        style="@android:style/TextAppearance.Large"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/text_selector"
+                        android:clickable="true"
+                        android:padding="@dimen/space"
+                        android:text="@string/send_log" />
+
+                    <LinearLayout
+                        android:id="@+id/linear7"
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:layout_below="@+id/txtSendLog"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/black"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relLogout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relLayoutSendLog"
+                    android:layout_marginTop="10dp" >
+
+                    <TextView
+                        android:id="@+id/txtLogout"
+                        style="@android:style/TextAppearance.Large"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:background="@drawable/text_selector"
+                        android:clickable="true"
+                        android:padding="@dimen/space"
+                        android:text="@string/exit" />
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+</FrameLayout>

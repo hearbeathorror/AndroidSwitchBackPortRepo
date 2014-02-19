@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/arrow_right" android:state_expanded="false"/>
+    <item android:drawable="@drawable/arrow_down" android:state_expanded="true"><bitmap xmlns:android="http://schemas.android.com/apk/res/android" android:dither="false" android:src="@drawable/bar" android:tileMode="repeat" />
+    </item>
+    <item android:drawable="@drawable/arrow_down" android:state_selected="true"><bitmap xmlns:android="http://schemas.android.com/apk/res/android" android:dither="false" android:src="@drawable/bar" android:tileMode="repeat" />
+    </item>
+    <item android:drawable="@drawable/arrow_down" android:state_pressed="true"><bitmap xmlns:android="http://schemas.android.com/apk/res/android" android:dither="false" android:src="@drawable/bar" android:tileMode="repeat" />
+    </item>
+    <item android:drawable="@drawable/arrow_down" android:state_activated="true"><bitmap xmlns:android="http://schemas.android.com/apk/res/android" android:dither="false" android:src="@drawable/bar" android:tileMode="repeat" />
+    </item>
+    <item android:drawable="@android:color/transparent" android:state_empty="true"/>
+
+</selector>

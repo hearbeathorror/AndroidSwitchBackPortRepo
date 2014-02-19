@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1">
+
+    <RelativeLayout 
+        android:id="@+id/relLeftMenu"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible">
+        <include 
+            layout="@layout/layout_left_menu"/>
+    </RelativeLayout>
+</FrameLayout><android.support.v4.widget.SlidingPaneLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/slidePaneLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+</android.support.v4.widget.SlidingPaneLayout>-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/slidePaneLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/orderrelatedrel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true" >
+
+        <RelativeLayout
+            android:id="@+id/relHeader"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <include
+                android:layout_alignParentTop="true"
+                layout="@layout/layout_header" />
+        </RelativeLayout>
+
+        <!-- <RelativeLayout
+            android:id="@+id/btnButtonsLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relHeader" >
+
+            <Button
+            android:id="@+id/btnAddNewGuest"
+            android:layout_width="180dp"
+            android:layout_height="75dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/button_selector"
+            android:drawableLeft="@drawable/add_new_guest"
+            android:onClick="buttonClicked"
+            android:text="@string/add_guest"
+            android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtTableNumberOrderRelated"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_alignParentLeft="true"
+                android:gravity="center"
+                android:layout_toLeftOf="@+id/btnModifiers"
+                android:padding="@dimen/space"
+                android:text="@string/table_number"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btnModifiers"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/modifier"
+                android:contentDescription="@string/image"
+                android:visibility="visible" />
+
+            <Button
+            android:id="@+id/btnRequestBill"
+            android:layout_width="180dp"
+            android:layout_height="75dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button_selector"
+            android:drawableLeft="@drawable/checkout"
+            android:onClick="buttonClicked"
+            android:text="@string/checkout"
+            android:textSize="12sp" />
+        </RelativeLayout> -->
+
+        <RelativeLayout
+            android:id="@+id/lnrListLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/relHeader"
+            android:clickable="true">
+            
+          <!--   <include 
+                android:id="@+id/footer"
+                layout="@layout/listview_footer"
+                android:layout_below="@+id/guestListView"/> -->
+            
+                
+           <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/lnrLayoutWithList"
+                android:clickable="true"
+                android:orientation="vertical">
+              <ExpandableListView
+                android:id="@+id/guestListView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="@dimen/space"
+                android:cacheColorHint="@android:color/transparent"
+                android:choiceMode="singleChoice"
+                android:clickable="true"
+                android:divider="@color/silver"
+                android:dividerHeight="2dp"
+                android:groupIndicator="@null"
+                android:scrollingCache="false"
+                android:transcriptMode="alwaysScroll"
+                android:layout_marginBottom="75dp">
+           </ExpandableListView>
+             
+            </LinearLayout> 
+            <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:clickable="true"
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/relFooterOrderRelated">
+                    <include layout="@layout/layout_order_footer" />
+                </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <com.slidinglayer.SlidingLayer
+        xmlns:slidingLayer="http://schemas.android.com/apk/res/com.slidinglayersample"
+        android:id="@+id/slidingLayer1"
+        android:layout_width="360dp"
+        android:clickable="false"
+        android:layout_height="match_parent"
+        android:layout_marginTop="75dp">
+
+        <RelativeLayout
+            android:id="@+id/relAddItemLayer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/drop_shadow"
+            android:layout_marginTop="0dp" >
+
+            <RelativeLayout
+                android:id="@+id/relSearchAndOrder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_color"
+                android:paddingBottom="10dp" >
+
+                <LinearLayout
+                    android:id="@+id/searchbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/relRightEnd"
+                    android:orientation="horizontal" >
+
+                    <AutoCompleteTextView
+                        android:id="@+id/autoSearchItem"
+                        style="@style/txtIndividualStyle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/edit_shape_spinner"
+                        android:hint="@string/search_item"
+                        android:inputType="text"
+                        android:singleLine="true" />
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relRightEnd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true" >
+
+                    <RelativeLayout
+                        android:id="@+id/relSpinners"
+                        android:layout_width="65dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="right" 
+                        android:visibility="gone">
+
+                        <Spinner
+                            android:id="@+id/spinnerCategoryList"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/menu_icon"
+                            android:spinnerMode="dropdown" />
+
+                        <Spinner
+                            android:id="@+id/spinnerSubCategoryList"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="14dp"
+                            android:background="@drawable/menu_icon"
+                            android:spinnerMode="dropdown"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+
+                    <Button
+                        android:id="@+id/btnBack"
+                        android:layout_width="65dp"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="13dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_toRightOf="@+id/relSpinners"
+                        android:background="@drawable/go_up_red" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <ListView
+                android:id="@android:id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relSearchAndOrder"
+                android:cacheColorHint="@android:color/transparent"
+                android:divider="@color/silver"
+                android:listSelector="@drawable/list_item_selector"
+                android:background="@color/white"
+                android:paddingRight="10dp"
+                android:paddingLeft="10dp"
+                android:dividerHeight="2dp" >
+            </ListView>
+            <TextView
+            android:id="@android:id/empty"
+            style="@style/txtIndividualStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/relSearchAndOrder"
+            android:layout_marginTop="15dp"
+            android:background="@color/white"
+            android:gravity="center|center_vertical"
+            android:text="@string/no_results"
+            android:clickable="false"
+            android:visibility="invisible" />
+        </RelativeLayout>
+    </com.slidinglayer.SlidingLayer>
+
+</RelativeLayout>

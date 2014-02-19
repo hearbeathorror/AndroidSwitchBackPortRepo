@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relOrderItems"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/child_item_selector"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp" >
+
+<!--     <ImageButton -->
+<!--         android:id="@+id/btnDeleteItemOrderScreen" -->
+<!--         android:layout_width="35dp" -->
+<!--         android:layout_height="35dp" -->
+<!--         android:layout_marginLeft="10dp" -->
+<!--         android:layout_marginTop="2dp" -->
+<!--         android:background="@drawable/remove_order" -->
+<!--         android:contentDescription="@string/image" -->
+<!--         android:focusable="false" /> -->
+
+	<TextView
+            android:id="@+id/txtItemQuantityOrderScreen"
+            style="@style/txtIndividualStyle"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:focusable="false"
+            android:selectAllOnFocus="false"
+            android:text="@string/counter"
+            android:textIsSelectable="false"
+            android:gravity="left"
+            android:layout_alignParentLeft="true"
+            android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/txtItemNameOrderScreen"
+        style="@style/txtIndividualStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/txtItemPrice"
+        android:layout_toRightOf="@+id/txtItemQuantityOrderScreen"
+        android:focusable="false"
+        android:selectAllOnFocus="false"
+        android:text="@string/item_name"
+        android:textIsSelectable="false"
+        android:textSize="14sp" />
+    
+    <TextView
+        android:id="@+id/txtModifiersItemOrderScreen"
+        style="@style/txtIndividualStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space"
+        android:layout_toLeftOf="@+id/txtItemPrice"
+        android:layout_toRightOf="@+id/txtItemQuantityOrderScreen"
+        android:layout_below="@+id/txtItemNameOrderScreen"
+        android:focusable="false"
+        android:selectAllOnFocus="false"
+        android:text="@string/item_name"
+        android:visibility="gone"
+        android:textIsSelectable="false"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/txtItemPrice"
+        style="@style/txtIndividualStyle"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_alignParentRight="true"
+        android:text="@string/total_order"
+        android:layout_marginRight="10dp"
+        android:textSize="14sp" />
+
+<!--     <RelativeLayout -->
+<!--         android:id="@+id/relRightElements" -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="wrap_content" -->
+<!--         android:layout_alignParentRight="true"> -->
+
+<!--         <ImageButton -->
+<!--             android:id="@+id/btnRemoveItem" -->
+<!--             android:layout_width="35dp" -->
+<!--             android:layout_height="35dp" -->
+<!--             android:layout_marginLeft="10dp" -->
+<!--             android:background="@drawable/minus" -->
+<!--             android:contentDescription="@string/image" -->
+<!--             android:focusable="false" -->
+<!--             android:focusableInTouchMode="false" /> -->
+
+<!--         <TextView -->
+<!--             android:id="@+id/txtItemQuantityOrderScreen" -->
+<!--             style="@style/txtIndividualStyle" -->
+<!--             android:layout_width="30dp" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_marginLeft="10dp" -->
+<!--             android:layout_marginTop="10dp" -->
+<!--             android:layout_toRightOf="@+id/btnRemoveItem" -->
+<!--             android:focusable="false" -->
+<!--             android:selectAllOnFocus="false" -->
+<!--             android:text="@string/counter" -->
+<!--             android:textIsSelectable="false" -->
+<!--             android:gravity="center" -->
+<!--             android:textSize="12sp" /> -->
+
+<!--         <ImageButton -->
+<!--             android:id="@+id/btnAddItem" -->
+<!--             android:layout_width="40dp" -->
+<!--             android:layout_height="35dp" -->
+<!--             android:layout_marginLeft="10dp" -->
+<!--             android:layout_toRightOf="@+id/txtItemQuantityOrderScreen" -->
+<!--             android:background="@drawable/plus" -->
+<!--             android:contentDescription="@string/image" -->
+<!--             android:focusable="false" -->
+<!--             android:focusableInTouchMode="false" -->
+<!--             android:layout_marginRight="5dp"/> -->
+<!--     </RelativeLayout> -->
+
+</RelativeLayout>

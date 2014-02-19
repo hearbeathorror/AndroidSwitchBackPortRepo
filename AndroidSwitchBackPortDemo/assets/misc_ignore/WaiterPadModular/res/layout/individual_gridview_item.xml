@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="55dp"
+    android:layout_height="55dp" 
+    android:layout_margin="10dp"
+    android:padding="@dimen/space"
+    android:id="@+id/txtDishNumber"
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_horizontal"
+    android:textIsSelectable="false"
+    android:text="@string/table_number"
+    android:background="@drawable/login_griditems"
+    style="@style/txtIndividualStyle">
+</TextView>

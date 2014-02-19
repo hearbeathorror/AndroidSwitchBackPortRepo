@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/txtTotalAmountOrder"
+        style="@style/txtIndividualStyle"
+        android:layout_width="250dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentLeft="true"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/total" />
+
+    <Button
+        android:id="@+id/btnSendOrder"
+        android:layout_width="250dp"
+        android:layout_height="65dp"
+        android:layout_toRightOf="@+id/txtTotalAmountOrder"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/button_selector"
+        android:drawableLeft="@drawable/send_order"
+        android:text="@string/send_order"
+        android:textSize="14sp"
+        android:textStyle="normal" />
+
+<!--     <Button -->
+<!--         android:id="@+id/btnAddItemOrder" -->
+<!--         android:layout_width="250dp" -->
+<!--         android:layout_height="65dp" -->
+<!--         android:background="@drawable/button_selector" -->
+<!--         android:drawableLeft="@drawable/add_item" -->
+<!--         android:text="@string/add_item" -->
+<!--         android:textColor="@color/header_end_color" -->
+<!--         android:textSize="14sp" -->
+<!--         android:layout_alignParentRight="true" -->
+<!--         android:textStyle="bold" /> -->
+
+</RelativeLayout>

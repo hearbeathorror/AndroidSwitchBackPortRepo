@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/space"
+    android:layout_marginBottom="@dimen/space">
+
+    <TextView
+        android:id="@+id/lblOrderNoTableOrders"
+        style="@style/txtIndividualStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space"
+        android:padding="@dimen/space"
+        android:text="@string/order_label"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/txtOrderNoTableOrders"
+        style="@style/txtIndividualStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:layout_toRightOf="@+id/lblOrderNoTableOrders"
+        android:gravity="left"
+        android:padding="@dimen/space"
+        android:text="@string/table_number"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/txtAmountPayableTableOrder"
+        style="@style/txtIndividualStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space"
+        android:layout_toLeftOf="@+id/btnCheckoutOrderTableOrders"
+        android:layout_toRightOf="@+id/txtOrderNoTableOrders"
+        android:gravity="left"
+        android:padding="@dimen/space"
+        android:text="@string/total_order"
+        android:textSize="16sp" />
+
+    <ImageButton
+        android:id="@+id/btnCheckoutOrderTableOrders"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/checkout"
+        android:contentDescription="@string/image"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="@dimen/space"
+        android:layout_marginTop="5dp"/>
+
+</RelativeLayout>

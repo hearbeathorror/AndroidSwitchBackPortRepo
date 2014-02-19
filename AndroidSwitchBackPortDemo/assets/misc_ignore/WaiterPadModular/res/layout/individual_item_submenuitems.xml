@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="@dimen/space"
+    android:layout_marginLeft="75dp"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/txtMenuItemNameSub"
+        android:layout_width="0dip"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        style="@style/txtIndividualStyle"
+        android:textIsSelectable="false"
+        android:layout_marginTop="3dp"
+        android:focusable="false"
+        android:text="@string/item_name"/>
+    <TextView
+        android:id="@+id/txtMenuItemPriceSub"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/txtIndividualStyle"
+        android:layout_marginTop="3dp"
+        android:focusable="false"
+        android:layout_marginRight="@dimen/space"
+        android:textIsSelectable="false"
+        android:text="@string/total_order"/>
+    <ImageButton 
+        android:id="@+id/btnAddItemMenuListSub"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/plus"
+        android:contentDescription="@string/image"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
+</LinearLayout>

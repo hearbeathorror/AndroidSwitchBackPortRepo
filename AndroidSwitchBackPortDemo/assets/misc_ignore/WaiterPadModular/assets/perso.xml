@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WAITERPAD_PERSO>
+    <LANGUAGE>
+		<ENGLISH>
+		    <ISOCODE>EN</ISOCODE>
+		    <APP_NAME>WaiterPad</APP_NAME>
+		    <ACTION_SETTINGS>Image</ACTION_SETTINGS>
+		    <CHANGE_WAITER_CODE>Change waiter code</CHANGE_WAITER_CODE>
+		    <NOTIFICATIONS_ENABLED>Notifications enabled</NOTIFICATIONS_ENABLED>
+		    <SHOW_SUGGESTIONS>Show suggestions</SHOW_SUGGESTIONS>
+		    <BACK_END_SETTINGS>Configure services</BACK_END_SETTINGS>
+		    <FORCE_SYNC>Force sync</FORCE_SYNC>
+		    <SEND_LOG>Send log file</SEND_LOG>
+		    <LANGUAGE>Language</LANGUAGE>
+		    <ORGANIZE_MENU>Organize menu</ORGANIZE_MENU>
+		    <ENTER_PIN>Enter Pin</ENTER_PIN>
+		    <MODIFIER>Modifier</MODIFIER>
+		    <IP_ADDRESS>Ip Address</IP_ADDRESS>
+		    <PORT>Port</PORT>
+		    <SAVE>Save</SAVE>
+		    <CANCEL>Cancel</CANCEL>
+		    <LOGOUT>Logout</LOGOUT>
+			<RESET>Reset</RESET>
+			<SEND_ORDER>Send Order</SEND_ORDER>
+			<ADD>Add</ADD>
+			<TOTAL>Total</TOTAL>
+			<OK>OK</OK>	    
+			<ORDER>Order</ORDER>
+			<SEARCH_ITEM>Search Item</SEARCH_ITEM>
+			<ENTER_PORT>Please enter the port number!</ENTER_PORT>
+			<ENTER_IP>Please enter the IP address!</ENTER_IP>
+			<ENTER_VALUES>Please enter fields marked as mandatory</ENTER_VALUES>
+			<VALID_IP>Please enter a valid IP Address!</VALID_IP>
+			<SERVER_UNREACHABLE>The server cannot be reached!</SERVER_UNREACHABLE>
+			<INVALID_USER>Incorrect PIN entered!</INVALID_USER>
+			<INCORRECT_PIN_SIZE>Please enter atleast 4 digits!</INCORRECT_PIN_SIZE>
+			<ENTER_VALID_PORT>Please enter a valid port number!</ENTER_VALID_PORT>
+			<LICENCE_LIMIT_EXCEEDED>Licence limit has exceeded!</LICENCE_LIMIT_EXCEEDED>
+			<ORDER_LIST>Order List</ORDER_LIST>
+			<USER_PROFILE>User Profile</USER_PROFILE>
+			<LOADING>Loading ...</LOADING>
+			<SELECT_SECTION>Select floor plan</SELECT_SECTION>
+			<SETTINGS>Settings</SETTINGS>
+			<ADD_GUEST>Add new guest</ADD_GUEST>
+			<NEW_ORDER>New Order</NEW_ORDER>
+			<CHECKOUT>Checkout</CHECKOUT>
+			<ADD_ITEM>Add Item</ADD_ITEM>
+			<GUEST>Guest</GUEST>
+			<REMOVE>Remove</REMOVE>
+			<UPDATE>Update</UPDATE>
+			<MY_TABLES>My Tables</MY_TABLES>
+			<SETTINGS_LABEL>Modify the configurations settings below</SETTINGS_LABEL>
+			<CHANGE_CONFIG_SETTINGS>Change configuration settings</CHANGE_CONFIG_SETTINGS>
+			<QUANTITY>Quantity</QUANTITY>
+			<FRACTION>Divide dish</FRACTION>
+			<MENU>Menu</MENU>
+			<FEATURED_ITEMS>Featured Items</FEATURED_ITEMS>
+			<YES>YES</YES>
+			<NO>NO</NO>
+			<BILL_SPLIT_MESSAGE>Would you like to Bill Split?</BILL_SPLIT_MESSAGE>
+			<PLACE_ORDER>Place Order</PLACE_ORDER>
+			<PENDING>Pending </PENDING>
+			<ORDER_NUMBER>Order No: </ORDER_NUMBER>
+			<ORDER_STATUS_MESSAGE>has been updated!</ORDER_STATUS_MESSAGE>
+			<MY_ORDERS>My Orders</MY_ORDERS>
+			<ALL_TABLES>All Tables</ALL_TABLES>
+			<ACTIVE_TABLES>Active Tables</ACTIVE_TABLES>
+			<BILL_REQUESTED_TABLES>Bill Request Tables</BILL_REQUESTED_TABLES>
+			<GO_TO_ORDER>Go to Order</GO_TO_ORDER>
+			<EXIT>Exit</EXIT>
+			<ENTER_PIN_TO_LOGOUT>Enter pin to logout</ENTER_PIN_TO_LOGOUT>
+		</ENGLISH>
+	</LANGUAGE>
+</WAITERPAD_PERSO>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/relativeHeaderLogin"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" >
+
+        <include
+            android:layout_alignParentTop="true"
+            layout="@layout/layout_header" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relAllLayersLogin"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/relativeHeaderLogin">
+
+        <RelativeLayout
+            android:id="@+id/relImage"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_above="@+id/relLayerCombined"
+            android:visibility="visible" >
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/icon_red_waiterpad"
+                android:contentDescription="@string/image"
+                android:scaleType="fitXY" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:id="@+id/relLayerCombined">
+
+            <RelativeLayout
+                android:id="@+id/relLayerOneLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/editWaiterPin"
+                    style="@style/txtIndividualStyle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_shape"
+                    android:hint="@string/enter_pin"
+                    android:inputType="textPassword"
+                    android:maxLength="4"
+                    android:password="true" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relLinkToSettings"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/relLayerOneLogin"
+                android:layout_marginTop="@dimen/space"
+                android:gravity="center" >
+
+                <TextView
+                    android:id="@+id/txtConfigSettingsScreen"
+                    style="@style/txtIndividualStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:onClick="buttonClicked"
+                    android:text="@string/change_config_settings"
+                    android:textColor="@color/blue" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>

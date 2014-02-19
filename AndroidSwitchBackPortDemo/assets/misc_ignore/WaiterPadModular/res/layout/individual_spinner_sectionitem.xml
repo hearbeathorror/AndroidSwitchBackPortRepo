@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/txtIndividualStyle"
+    android:textIsSelectable="false"
+    android:id="@+id/rdbtnSectionName"
+    android:textColor="@color/black"
+    android:padding="@dimen/space"
+    android:text="@string/table_name">
+</RadioButton>
+
+<!-- 
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/txtIndividualStyle"
+    android:textIsSelectable="false"
+    android:id="@+id/spinnerSectionName"
+    android:textColor="@color/black"
+    android:padding="@dimen/space"
+    android:text="@string/table_name">
+</TextView>
+
+ -->

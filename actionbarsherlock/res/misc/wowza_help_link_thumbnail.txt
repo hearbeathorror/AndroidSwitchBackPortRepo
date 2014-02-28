@@ -1,7 +1,0 @@
-http://[wowza-ip-address]:8086/transcoderthumbnail?application=[application-name]&streamname=[stream-name]&format=[jpeg or png]&size=[widthxheight]
-
-http://www.wowza.com/_h264/BigBuckBunny_115k.mov
-
-http://www.wowza.com/forums/content.php?307
-
-http://www.wowza.com/forums/showthread.php?577-Custom-module-to-create-single-frame-snapshots-of-live-and-VOD-stream

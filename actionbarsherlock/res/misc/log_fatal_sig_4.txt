@@ -1,0 +1,32 @@
+02-06 16:31:38.720: D/dalvikvm(6591): VFY: replacing opcode 0x22 at 0x01c2
+02-06 16:31:38.720: E/dalvikvm(6591): Could not find class 'java.awt.image.BufferedImage', referenced from method com.googlecode.javacv.cpp.opencv_core$IplImage.getBufferedImage
+02-06 16:31:38.720: W/dalvikvm(6591): VFY: unable to resolve check-cast 5690 (Ljava/awt/image/BufferedImage;) in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;
+02-06 16:31:38.720: D/dalvikvm(6591): VFY: replacing opcode 0x1f at 0x01f9
+02-06 16:31:38.720: E/dalvikvm(6591): Could not find class 'java.awt.image.BufferedImage', referenced from method com.googlecode.javacv.cpp.opencv_core$IplImage.getBufferedImage
+02-06 16:31:38.720: W/dalvikvm(6591): VFY: unable to resolve new-instance 5690 (Ljava/awt/image/BufferedImage;) in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;
+02-06 16:31:38.720: D/dalvikvm(6591): VFY: replacing opcode 0x22 at 0x0077
+02-06 16:31:38.730: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcef7 at 0x1e in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.cloneBufferedImage
+02-06 16:31:38.730: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcef6 at 0x2d in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.cloneBufferedImage
+02-06 16:31:38.730: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xceea at 0x19 in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.copyFrom
+02-06 16:31:38.730: I/dalvikvm(6591): DexOpt: unable to optimize instance field ref 0x48fd at 0xa2 in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.copyFrom
+02-06 16:31:38.730: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xceea at 0x19 in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.copyTo
+02-06 16:31:38.730: I/dalvikvm(6591): DexOpt: unable to optimize instance field ref 0x48fd at 0x88 in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.copyTo
+02-06 16:31:38.730: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcef6 at 0x18 in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.getBufferedImage
+02-06 16:31:38.730: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcf04 at 0x59 in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.getBufferedImage
+02-06 16:31:38.730: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcf05 at 0x6f in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.getBufferedImage
+02-06 16:31:38.730: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcef7 at 0x7d in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.getBufferedImage
+02-06 16:31:38.730: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcf04 at 0x103 in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.getBufferedImage
+02-06 16:31:38.730: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcf05 at 0x11b in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.getBufferedImage
+02-06 16:31:38.730: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcf04 at 0x135 in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.getBufferedImage
+02-06 16:31:38.730: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcf05 at 0x14d in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.getBufferedImage
+02-06 16:31:38.730: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcf04 at 0x167 in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.getBufferedImage
+02-06 16:31:38.740: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcf05 at 0x17f in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.getBufferedImage
+02-06 16:31:38.740: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcf04 at 0x198 in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.getBufferedImage
+02-06 16:31:38.740: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcf05 at 0x1b0 in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.getBufferedImage
+02-06 16:31:38.750: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcf04 at 0x1c9 in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.getBufferedImage
+02-06 16:31:38.750: D/dalvikvm(6591): DexOpt: unable to opt direct call 0xcf05 at 0x1e1 in Lcom/googlecode/javacv/cpp/opencv_core$IplImage;.getBufferedImage
+02-06 16:31:38.790: D/dalvikvm(6591): GC_CONCURRENT freed 1225K, 19% free 11992K/14791K, paused 2ms+3ms
+02-06 16:31:39.930: D/dalvikvm(6591): GC_CONCURRENT freed 1077K, 16% free 12543K/14791K, paused 2ms+4ms
+02-06 16:31:42.830: D/dalvikvm(6591): GC_CONCURRENT freed 892K, 9% free 13462K/14791K, paused 3ms+3ms
+02-06 16:31:43.060: D/dalvikvm(6591): Trying to load lib /data/data/com.appname/lib/libtbb.so 0x41310818
+02-06 16:31:43.070: A/libc(6591): Fatal signal 4 (SIGILL) at 0x5e776cec (code=1)
